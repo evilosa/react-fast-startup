@@ -2,7 +2,7 @@ import expect from 'expect';
 import React from 'react';
 import {render, unmountComponentAtNode} from 'react-dom';
 
-import Component from 'src/LoadingButton';
+import Component from 'src/LoadingButton/index';
 
 describe('Component', () => {
   let node;
@@ -17,7 +17,7 @@ describe('Component', () => {
 
   it('displays a welcome message', () => {
     render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('<button type="button"></button>')
+      expect(node.innerHTML).toContain('<button type="button">34</button>')
     })
   })
 });

@@ -1,5 +1,5 @@
-import t from 'prop-types'
-import React, {Component} from 'react'
+import t from 'prop-types';
+import React, {Component} from 'react';
 
 class LoadingButton extends Component {
   static propTypes = {

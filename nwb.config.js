@@ -6,7 +6,9 @@ module.exports = {
       global: 'ReactFastStartup',
       externals: {
         'react': 'React',
-        'react-router': 'ReactRouter'
+        'radium': 'Radium',
+        'react-router': 'ReactRouter',
+        'react-router-dom': 'ReactRouterDom'
       }
     }
   }
