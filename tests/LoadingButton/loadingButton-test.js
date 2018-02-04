@@ -17,7 +17,7 @@ describe('Component', () => {
 
   it('displays a welcome message', () => {
     render(<Component/>, node, () => {
-      expect(node.innerHTML).toContain('<button type="button">34</button>')
+      expect(node.innerHTML).toContain('<button type="button"></button>')
     })
   })
 });
