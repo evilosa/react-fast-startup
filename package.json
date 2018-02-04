@@ -19,6 +19,7 @@
     "test:watch": "nwb test-react --server"
   },
   "dependencies": {
+    "color": "^3.0.0",
     "radium": "^0.21.2",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2"

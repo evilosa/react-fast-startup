@@ -5,6 +5,7 @@ module.exports = {
     umd: {
       global: 'ReactFastStartup',
       externals: {
+        'color': 'Color',
         'react': 'React',
         'radium': 'Radium',
         'react-router': 'ReactRouter',
