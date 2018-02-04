@@ -5,3 +5,4 @@ export Layout from './Layout';
 export LoadingButton from './LoadingButton';
 export NavBar from './NavBar';
 export NavBarItem from './NavBarItem';
+export TextInput from './TextInput';
