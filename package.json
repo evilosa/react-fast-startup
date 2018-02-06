@@ -67,7 +67,7 @@
       "enzyme-to-json/serializer"
     ],
     "transform": {
-      "^.+\\.js$": "babel-jest"
+      "^.+\\.js$": "<rootDir>/jest.transform.js"
     },
     "setupFiles": [
       "./tests/jestSetup.js"
