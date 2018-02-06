@@ -7,6 +7,7 @@ import style from './style';
 class Button extends React.Component {
 
   static propTypes = {
+    /** Default style for button */
     style: PropTypes.object,
   };
 
