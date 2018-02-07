@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render a label 1`] = `
+exports[`Button component render a label 1`] = `
 <div>
   Hello Jest!
 </div>
 `;
 
-exports[`renders correctly 1`] = `
+exports[`Button component renders correctly 1`] = `
 <button
   data-radium={true}
   onClick={[Function]}

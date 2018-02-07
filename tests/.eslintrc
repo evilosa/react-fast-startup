@@ -1,5 +1,10 @@
 {
   "env": {
     "mocha": true
-  }
+  },
+  "globals": {
+    "shallow": true,
+    "render": true,
+    "mount": true
+  },
 }
