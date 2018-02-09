@@ -14,14 +14,14 @@
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "demo": "nwb serve-react-demo",
-    "jest": "jest",
-    "jest:coverage": "jest --coverage",
-    "jest:watch": "jest --watch",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:watch": "jest --watch",
     "start": "start-storybook -p 4001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o ./.storybook/dist",
-    "test": "npm-run-all -p demo jest",
-    "test:watch": "npm-run-all -p demo jest:watch",
-    "test:coverage": "npm-run-all -p demo jest:coverage"
+    "jest": "npm-run-all -p demo test",
+    "jest:watch": "npm-run-all -p demo test:watch",
+    "jest:coverage": "npm-run-all -p demo test:coverage"
   },
   "dependencies": {
     "color": "^3.0.0",
