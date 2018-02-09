@@ -9,7 +9,14 @@ describe('Visual Regressions', () => {
 
   beforeEach(() => {
     server = require('../../scripts/server');
-    chrome = new Chrome();
+    chrome = new Chrome({
+      flags: {
+        headless: true,
+        disableGpu: true,
+        hideScrollbars: true,
+        noSandbox: true
+      }
+    });
   });
 
   afterEach(() => {
