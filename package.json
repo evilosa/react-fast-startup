@@ -74,6 +74,7 @@
     },
     "setupFiles": [
       "./tests/jestSetup.js"
-    ]
+    ],
+    "setupTestFrameworkScriptFile" : "<rootDir>/tests/setupTestFramework.js"
   }
 }
