@@ -10,8 +10,8 @@ before_install:
 before_script:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - sleep 6 # give xvfb some time to start
-  - nwb serve-react-demo  # start a Web server
+  - sleep 3 # give xvfb some time to start
+  - npm-run-all -p demo  # start a Web server
   - sleep 3 # give Web server some time to bind to sockets, etc
 
 after_success:
