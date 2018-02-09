@@ -14,6 +14,7 @@ export const createButtonStyle = (colors = ButtonColors) => ({
       background: Color(colors.baseBackground).lighten(0.2).hex(),
     },
     background: colors.baseBackground,
+    width: '2px',
   },
 
   primary: {

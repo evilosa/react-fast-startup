@@ -14,11 +14,14 @@
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && nwb clean-demo",
     "demo": "nwb serve-react-demo",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
-    "test:watch": "jest --watch",
+    "jest": "jest",
+    "jest:coverage": "jest --coverage",
+    "jest:watch": "jest --watch",
     "start": "start-storybook -p 4001 -c .storybook",
-    "build-storybook": "build-storybook -c .storybook -o ./.storybook/dist"
+    "build-storybook": "build-storybook -c .storybook -o ./.storybook/dist",
+    "test": "npm-run-all -p demo jest",
+    "test:watch": "npm-run-all -p demo jest:watch",
+    "test:coverage": "npm-run-all -p demo jest:coverage"
   },
   "dependencies": {
     "color": "^3.0.0",
@@ -42,6 +45,9 @@
     "eslint": "^4.17.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^22.1.4",
+    "jest-image-snapshot": "^2.3.0",
+    "navalia": "^1.2.0",
+    "npm-run-all": "^4.1.2",
     "nwb": "0.21.x",
     "prop-types": "^15.6.0",
     "raf": "^3.4.0",

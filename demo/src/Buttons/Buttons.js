@@ -4,7 +4,7 @@ class Buttons extends React.Component {
 
   render() {
     return (
-      <div>Buttons page</div>
+      <div>Buttons sage</div>
     );
   }
 }

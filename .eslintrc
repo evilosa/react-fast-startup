@@ -3,7 +3,7 @@
 
 {
   "extends": [
-    "eslint:recommended",
+    "eslint:recommended"
   ],
   "parser": "babel-eslint",
   "globals": {
@@ -20,6 +20,9 @@
     "SyntheticWheelEvent": true,
     "SyntheticTouchEvent": true,
     "SyntheticTransitionEvent": true,
+    "shallow": true,
+    "render": true,
+    "mount": true
   },
   "env": {
     "es6": true,
