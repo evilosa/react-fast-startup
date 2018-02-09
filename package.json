@@ -43,11 +43,10 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.1",
     "eslint": "^4.17.0",
-    "identity-obj-proxy": "^3.0.0",
+    "express": "^4.16.2",
     "jest": "^22.1.4",
     "jest-image-snapshot": "^2.3.0",
     "navalia": "^1.2.0",
-    "npm-run-all": "^4.1.2",
     "nwb": "0.21.x",
     "prop-types": "^15.6.0",
     "raf": "^3.4.0",
@@ -75,6 +74,6 @@
     "setupFiles": [
       "./tests/jestSetup.js"
     ],
-    "setupTestFrameworkScriptFile" : "<rootDir>/tests/setupTestFramework.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/setupTestFramework.js"
   }
 }
