@@ -6,6 +6,7 @@ class Table extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
     canAddNewItem: PropTypes.bool,
+    children: PropTypes.node,
   };
 
   static defaultProps = {
@@ -34,7 +35,16 @@ class Table extends Component {
   }
 
   render() {
-    return <div>Table</div>;
+    // const { children } = this.props;
+    // console.log(children);
+
+    return (
+      <div>
+        <div className="table-header"></div>
+        <div className="table-rows"></div>
+        <div className="table-footer"></div>
+      </div>
+    );
   }
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Table from './Table';
 import TableColumn from '../TableColumn';
 
@@ -38,7 +38,7 @@ describe('Table', () => {
   });
 
   describe('render', () => {
-    const table = render(
+    const table = shallow(
       <Table>
         <TableColumn/>
         <TableColumn/>
@@ -46,8 +46,20 @@ describe('Table', () => {
       </Table>
     );
 
+    it('headers', () => {
+      expect(table.find('.table-header').exists()).toBe(true);
+    });
+
+    it('rows', () => {
+      expect(table.find('.table-rows').exists()).toBe(true);
+    });
+
+    it('footer', () => {
+      expect(table.find('.table-footer').exists()).toBe(true);
+    });
+
     it('renders 0 TableColumn for empty items', () => {
-      expect(table.find(TableColumn).length).toEqual(0);
+      expect(table.find(TableColumn).exists()).toBe(false);
     });
 
   });
