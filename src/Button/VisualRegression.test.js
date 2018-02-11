@@ -27,6 +27,9 @@ describe('Visual Regressions', () => {
   it('should NEVER happen', () => {
     return chrome.goto('http://localhost:3000/')
       .then(() => chrome.screenshot())
-      .then((image) => expect(image).toMatchImageSnapshot());
+      .then((image) => {
+        console.log(`Image length: ${image.length}`);
+        expect(image).toMatchImageSnapshot();
+      });
   });
 });
