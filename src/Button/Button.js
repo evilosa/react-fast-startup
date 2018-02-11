@@ -16,9 +16,6 @@ class Button extends React.Component {
   };
 
   _onClick = () => {
-    const { style } = this.props;
-    console.log('Button style');
-    console.log(style);
   };
 
   render() {
