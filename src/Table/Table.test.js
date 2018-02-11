@@ -58,7 +58,7 @@ describe('Table', () => {
       expect(table.find('.table-footer').exists()).toBe(true);
     });
 
-    it('renders 0 TableColumn for empty items', () => {
+    it('0 TableColumn', () => {
       expect(table.find(TableColumn).exists()).toBe(false);
     });
 
