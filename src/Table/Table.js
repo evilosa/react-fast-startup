@@ -5,10 +5,13 @@ class Table extends Component {
 
   static propTypes = {
     items: PropTypes.array.isRequired,
+    canAddNewItem: PropTypes.bool,
   };
 
   static defaultProps = {
     items: [],
+    canAddNewItem: false,
+    header: '',
   };
 
   constructor(props) {

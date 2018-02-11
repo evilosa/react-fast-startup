@@ -3,9 +3,8 @@
     "mocha": true
   },
   "globals": {
-    "shallow": true,
-    "render": true,
-    "mount": true,
-    "jasmine": true
+    "jasmine": true,
+    "expect": true,
+    "describe": true
   },
 }
