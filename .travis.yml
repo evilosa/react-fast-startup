@@ -4,13 +4,8 @@ language: node_js
 node_js:
   - 8
 
-addons:
-  chrome: stable
-
 before_install:
   - npm install codecov.io coveralls
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  ⋮
 
 before_script:
   - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1600x1200x32"
