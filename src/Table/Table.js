@@ -1,5 +1,7 @@
 import * as React from 'react';
+import Radium from 'radium';
 import PropTypes from 'prop-types';
+import style from './style';
 
 class Table extends React.Component {
 
@@ -36,14 +38,14 @@ class Table extends React.Component {
 
   _renderHeaders = (headerColumns) => {
     return headerColumns.map(({header, width}, index) => (
-      <div className="table-header-column" key={index}>{header}</div>
+      <div className="table-header-column" key={index} style={[style.tableHeaderColumn, { flex: width }]}>{header}</div>
     ));
   };
 
   _renderRows = (rowColumns) => {
     const { items } = this.state;
     return items.map((rowData, rowIndex) => (
-      <div className="table-row" key={rowIndex}>
+      <div className="table-row" key={rowIndex} style={style.tableRow}>
         {this._renderRowColumns(rowColumns, rowData)}
       </div>
     ));
@@ -52,7 +54,7 @@ class Table extends React.Component {
   _renderRowColumns = (rowColumns, rowData) => (
     rowColumns.map((column, index) => {
       const columnData = rowData[column.propName];
-      return <div className="table-row-column" key={index}>{columnData}</div>
+      return <div className="table-row-column" key={index} style={style.tableRowColumn}>{columnData}</div>
     })
   );
 
@@ -79,18 +81,34 @@ class Table extends React.Component {
     });
 
     return (
-      <div>
+      <div style={style.root}>
         <h1>{header}</h1>
-        <div className="table-header">
+
+        {/* Header */}
+        <div
+          className="table-header"
+          style={style.header}
+        >
           {this._renderHeaders(headerColumns)}
         </div>
-        <div className="table-body">
+
+        {/* Body */}
+        <div
+          className="table-body"
+          style={style.body}
+        >
           {rowColumns.length > 0 && this._renderRows(rowColumns)}
         </div>
-        <div className="table-footer"></div>
+
+        {/* Footer */}
+        <div
+          className="table-footer"
+          style={style.footer}
+        >
+        </div>
       </div>
     );
   }
 };
 
-export default Table;
+export default Radium(Table);
