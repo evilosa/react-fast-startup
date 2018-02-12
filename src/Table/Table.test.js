@@ -76,11 +76,10 @@ describe('Table', () => {
     });
   });
 
-  describe('with provided 3 items should renders correct', () => {
+  describe('with provided 2 items should renders correct', () => {
     const items = [
       { id: '1', title: 'Toast', sum: '$5'},
       { id: '2', title: 'Chicken', sum: '$15'},
-      { id: '3', title: 'Coffee', sum: '$3'},
     ];
     const table = shallow(
       <Table items={items}>
@@ -92,6 +91,14 @@ describe('Table', () => {
 
     it('headers with 3 column', () => {
       expect(table.find('.table-header-column').length).toEqual(3);
+    });
+
+    it('body with 2 rows', () => {
+      expect(table.find('.table-row').length).toEqual(2);
+    });
+
+    it('body with 6 row columns', () => {
+      expect(table.find('.table-row-column').length).toEqual(6);
     });
   });
 });

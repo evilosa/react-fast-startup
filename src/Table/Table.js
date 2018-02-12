@@ -40,10 +40,26 @@ class Table extends React.Component {
     ));
   };
 
+  _renderRows = (rowColumns) => {
+    const { items } = this.state;
+    return items.map((rowData, rowIndex) => (
+      <div className="table-row" key={rowIndex}>
+        {this._renderRowColumns(rowColumns, rowData)}
+      </div>
+    ));
+  };
+
+  _renderRowColumns = (rowColumns, rowData) => (
+    rowColumns.map((column, index) => {
+      const columnData = rowData[column.propName];
+      return <div className="table-row-column" key={index}>{columnData}</div>
+    })
+  );
+
   render() {
-    const { children, header, items } = this.props;
+    const { children, header } = this.props;
     const headerColumns = [];
-    const bodyColumns = [];
+    const rowColumns = [];
     const footerColumns = [];
 
     React.Children.forEach(children, (child) => {
@@ -55,8 +71,8 @@ class Table extends React.Component {
       // Fill headers columns
       headerColumns.push({ header, width });
 
-      // Fill body columns
-      bodyColumns.push({ propName, width });
+      // Fill row columns
+      rowColumns.push({ propName, width });
 
       // Fill footer
       footerColumns.push({ footer, width });
@@ -68,7 +84,9 @@ class Table extends React.Component {
         <div className="table-header">
           {this._renderHeaders(headerColumns)}
         </div>
-        <div className="table-body"></div>
+        <div className="table-body">
+          {rowColumns.length > 0 && this._renderRows(rowColumns)}
+        </div>
         <div className="table-footer"></div>
       </div>
     );
