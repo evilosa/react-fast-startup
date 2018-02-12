@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table renders properly 1`] = `
+<div>
+  <div
+    className="table-header"
+  />
+  <div
+    className="table-rows"
+  />
+  <div
+    className="table-footer"
+  />
+</div>
+`;
