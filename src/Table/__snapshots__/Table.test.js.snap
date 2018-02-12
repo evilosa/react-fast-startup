@@ -2,6 +2,7 @@
 
 exports[`Table renders properly 1`] = `
 <div>
+  <h1 />
   <div
     className="table-header"
   />

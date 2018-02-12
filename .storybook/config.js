@@ -4,6 +4,7 @@ function loadStories() {
   require('./stories/ActionsPane.js');
   require('./stories/Buttons');
   require('./stories/Buttons2');
+  require('./stories/Table');
 }
 
 

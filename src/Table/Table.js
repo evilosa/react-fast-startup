@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
-class Table extends Component {
+class Table extends React.Component {
 
   static propTypes = {
     items: PropTypes.array.isRequired,
@@ -34,13 +34,40 @@ class Table extends Component {
     }
   }
 
+  _renderHeaders = (headerColumns) => {
+    return headerColumns.map(({header, width}, index) => (
+      <div className="table-header-column" key={index}>{header}</div>
+    ));
+  };
+
   render() {
-    // const { children } = this.props;
-    // console.log(children);
+    const { children, header, items } = this.props;
+    const headerColumns = [];
+    const bodyColumns = [];
+    const footerColumns = [];
+
+    React.Children.forEach(children, (child) => {
+      if (!child.type || child.type.displayName !== 'TableColumn')
+        throw new Error('Child component should be instance of <TableColumn />');
+
+      const { header, propName, footer, width } = child.props;
+
+      // Fill headers columns
+      headerColumns.push({ header, width });
+
+      // Fill body columns
+      bodyColumns.push({ propName, width });
+
+      // Fill footer
+      footerColumns.push({ footer, width });
+    });
 
     return (
       <div>
-        <div className="table-header"></div>
+        <h1>{header}</h1>
+        <div className="table-header">
+          {this._renderHeaders(headerColumns)}
+        </div>
         <div className="table-body"></div>
         <div className="table-footer"></div>
       </div>

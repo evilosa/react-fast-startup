@@ -58,8 +58,8 @@ describe('Table', () => {
       expect(table.find('.table-footer').exists()).toBe(true);
     });
 
-    it('headers without columns', () => {
-      expect(table.find('.table-header-column').length).toEqual(0);
+    it('headers columns', () => {
+      expect(table.find('.table-header-column').length).toEqual(3);
     });
 
     it('body without rows and row columns', () => {
@@ -76,18 +76,22 @@ describe('Table', () => {
     });
   });
 
-  // describe('with provided items renders correct', () => {
-  //   const items = [];
-  //   const table = shallow(
-  //     <Table items={items}>
-  //       <TableColumn/>
-  //       <TableColumn/>
-  //       <TableColumn/>
-  //     </Table>
-  //   );
-  //
-  //   it('headers with 3 column', () => {
-  //     expect(table.find('.table-header-column').length).toEqual(3);
-  //   });
-  // });
+  describe('with provided 3 items should renders correct', () => {
+    const items = [
+      { id: '1', title: 'Toast', sum: '$5'},
+      { id: '2', title: 'Chicken', sum: '$15'},
+      { id: '3', title: 'Coffee', sum: '$3'},
+    ];
+    const table = shallow(
+      <Table items={items}>
+        <TableColumn/>
+        <TableColumn/>
+        <TableColumn/>
+      </Table>
+    );
+
+    it('headers with 3 column', () => {
+      expect(table.find('.table-header-column').length).toEqual(3);
+    });
+  });
 });
