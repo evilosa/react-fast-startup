@@ -45,7 +45,7 @@ class Table extends React.Component {
   _renderRows = (rowColumns) => {
     const { items } = this.state;
     return items.map((rowData, rowIndex) => (
-      <div className="table-row" key={rowIndex} style={style.tableRow}>
+      <div className="table-row" key={rowIndex} style={[style.tableRow, rowIndex % 2 === 0 && style.even]}>
         {this._renderRowColumns(rowColumns, rowData)}
       </div>
     ));

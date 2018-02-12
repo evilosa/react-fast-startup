@@ -1,8 +1,6 @@
 export const TableColors = {
-  baseColor: '#fff',
-  baseBackground: '#222222',
-  primaryBackground: '#0074d9',
-  warningBackground: '#f00',
+  baseBackground: '#fff',
+  evenBackground: '#bec7be',
 };
 
 export const createTableStyle = (colors = TableColors) => ({
@@ -31,6 +29,11 @@ export const createTableStyle = (colors = TableColors) => ({
   tableRow: {
     display: 'flex',
     flex: '1 0',
+    background: colors.baseBackground,
+  },
+
+  even: {
+    background: colors.evenBackground,
   },
 
   tableHeaderColumn: {
