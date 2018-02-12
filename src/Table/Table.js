@@ -41,7 +41,7 @@ class Table extends Component {
     return (
       <div>
         <div className="table-header"></div>
-        <div className="table-rows"></div>
+        <div className="table-body"></div>
         <div className="table-footer"></div>
       </div>
     );

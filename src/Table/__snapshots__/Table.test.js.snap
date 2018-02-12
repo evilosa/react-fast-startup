@@ -6,7 +6,7 @@ exports[`Table renders properly 1`] = `
     className="table-header"
   />
   <div
-    className="table-rows"
+    className="table-body"
   />
   <div
     className="table-footer"
