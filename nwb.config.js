@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   type: 'react-component',
   npm: {
@@ -11,6 +13,12 @@ module.exports = {
         'react-router': 'ReactRouter',
         'react-router-dom': 'ReactRouterDom'
       }
+    }
+  },
+  webpack: {
+    aliases: {
+      'components': path.resolve('src'),
+      'demo-components': path.resolve('demo/src')
     }
   }
 };

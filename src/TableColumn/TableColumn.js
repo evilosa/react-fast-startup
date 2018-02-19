@@ -1,16 +1,23 @@
-import React from 'react';
+import React from 'react'
+import PropTypes from 'prop-types'
 
 const TableColumn = () => {
-  return <div>Table column</div>;
-};
+  return <div>Table column</div>
+}
 
 TableColumn.defaultProps = {
   header: '',
   propName: null,
   footer: null,
   width: '1 0',
-};
+}
 
-TableColumn.displayName = 'TableColumn';
+TableColumn.propTypes = {
+  header: PropTypes.string.isRequired,
+  propName: PropTypes.string.isRequired,
+  width: PropTypes.string
+}
 
-export default TableColumn;
+TableColumn.displayName = 'TableColumn'
+
+export default TableColumn

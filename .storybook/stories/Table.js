@@ -18,13 +18,15 @@ storiesOf('Table', module)
           { id: '3', title: 'Coffee', sum: '$3'},
         ];
       return (
-        <Table
-          header="Test table"
-          items={items}
-        >
-          <TableColumn header="Id" propName="id"/>
-          <TableColumn header="Title" propName="title"/>
-          <TableColumn header="Sum" propName="sum"/>
-        </Table>
+        <div style={{height: '900px', display: 'flex'}}>
+          <Table
+            header="Test table"
+            items={items}
+          >
+            <TableColumn header="Id" propName="id"/>
+            <TableColumn header="Title" propName="title"/>
+            <TableColumn header="Sum" propName="sum"/>
+          </Table>
+        </div>
       )
     }));
