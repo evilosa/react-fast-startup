@@ -20,8 +20,14 @@ exports[`Table renders properly 1`] = `
     key=".1"
     style={
       Object {
+        "backgroundColor": "#FCFDFD",
+        "borderBottomColor": "#D7DBDD",
+        "borderBottomStyle": "solid",
+        "borderBottomWidth": "1px",
         "display": "flex",
         "flex": "1 0",
+        "maxHeight": "30px",
+        "minHeight": "30px",
       }
     }
   />
@@ -45,6 +51,8 @@ exports[`Table renders properly 1`] = `
       Object {
         "display": "flex",
         "flex": "1 0",
+        "maxHeight": "30px",
+        "minHeight": "30px",
       }
     }
   />
