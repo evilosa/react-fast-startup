@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import Radium from 'radium';
 import style from './styles';
-import ComponentHeader from '../ComponentHeader';
+import ComponentHeader from '../ComponentHeader/index';
 
 const TextInput = ({title, value, propName, onChange, style}) => {
   return (

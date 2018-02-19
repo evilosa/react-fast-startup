@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import ActionsPane from '../../src/ActionsPane';
+import ActionsPane from '../../src/components/ActionsPane';
 
 storiesOf('ActionsPane', module)
   .add('with text', () => (

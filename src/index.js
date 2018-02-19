@@ -1,13 +1,13 @@
-export Action from './Action';
-export ActionsPane from './ActionsPane';
-export Button from './Button';
-export Layout from './Layout';
-export LoadingButton from './LoadingButton';
-export NavBar from './NavBar';
-export NavBarItem from './NavBarItem';
-export Table from './Table';
-export TableColumn from './TableColumn';
-export TextInput from './TextInput';
+export Action from './components/Action';
+export ActionsPane from './components/ActionsPane';
+export Button from './components/Button';
+export Layout from './components/Layout';
+export LoadingButton from './components/LoadingButton';
+export NavBar from './components/NavBar';
+export NavBarItem from './components/NavBarItem';
+export Table from './components/Table';
+export TableColumn from './components/TableColumn';
+export TextInput from './components/TextInput';
 
 export style from './style';
 

@@ -8,7 +8,7 @@ describe('Visual Regressions', () => {
   let server = null;
 
   beforeEach(() => {
-    server = require('../../scripts/server');
+    server = require('../../../scripts/server');
     chrome = new Chrome({
       flags: {
         headless: true,

@@ -1,8 +1,8 @@
 import React from 'react';
 import { withInfo } from '@storybook/addon-info';
 import { storiesOf } from '@storybook/react';
-import Table from '../../src/Table';
-import TableColumn from '../../src/TableColumn';
+import Table from '../../src/components/Table';
+import TableColumn from '../../src/components/TableColumn';
 
 storiesOf('Table', module)
   .add('default',

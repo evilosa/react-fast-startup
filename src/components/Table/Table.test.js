@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Table from './Table';
-import TableColumn from '../TableColumn';
+import TableColumn from '../TableColumn/index';
 
 describe('Table', () => {
   it('renders properly', () => {
