@@ -18,6 +18,7 @@ module.exports = {
   webpack: {
     aliases: {
       'components': path.resolve('src'),
+      'fonts': path.resolve('fonts'),
       'demo-components': path.resolve('demo/src')
     }
   }

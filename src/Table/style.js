@@ -1,7 +1,10 @@
 export const TableColors = {
   baseBackground: '#fff',
-  evenBackground: '#bec7be',
-};
+  evenBackground: '#EEF3F5',
+  border: '#D7DBDD',
+  headerBackground: '#FCFDFD',
+  headerText: '#16A2D7'
+}
 
 export const createTableStyle = (colors = TableColors) => ({
   root: {
@@ -13,6 +16,12 @@ export const createTableStyle = (colors = TableColors) => ({
   header: {
     display: 'flex',
     flex: '1 0',
+    backgroundColor: colors.headerBackground,
+    minHeight: '30px',
+    maxHeight: '30px',
+    borderBottomWidth: '1px',
+    borderBottomStyle: 'solid',
+    borderBottomColor: colors.border
   },
 
   body: {
@@ -24,12 +33,16 @@ export const createTableStyle = (colors = TableColors) => ({
   footer: {
     display: 'flex',
     flex: '1 0',
+    minHeight: '30px',
+    maxHeight: '30px',
   },
 
   tableRow: {
     display: 'flex',
     flex: '1 0',
     background: colors.baseBackground,
+    minHeight: '30px',
+    maxHeight: '30px',
   },
 
   even: {
@@ -39,16 +52,28 @@ export const createTableStyle = (colors = TableColors) => ({
   tableHeaderColumn: {
     display: 'flex',
     flex: '1 0',
+    padding: '5px',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    fontWeight: 'bold'
+    fontFamily: "'Raleway', sans-serif",
+    fontSize: '12px',
+    fontWeight: '400',
+    lineHeight: '18px',
+    fontStretch: '100%',
+    color: colors.headerText,
   },
 
   tableRowColumn: {
     flex: '1 0',
+    padding: '5px',
+    fontFamily: "'Raleway', sans-serif",
+    fontSize: '12px',
+    fontWeight: '400',
+    lineHeight: '18px',
+    fontStretch: '100%',
   }
-});
+})
 
-export const TableStyle = createTableStyle(TableColors);
+export const TableStyle = createTableStyle(TableColors)
 
-export default TableStyle;
+export default TableStyle

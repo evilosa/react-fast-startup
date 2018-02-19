@@ -8,3 +8,5 @@ export NavBarItem from './NavBarItem';
 export Table from './Table';
 export TableColumn from './TableColumn';
 export TextInput from './TextInput';
+
+export * as style from 'style';
