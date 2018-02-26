@@ -3,14 +3,12 @@
 exports[`Button renders correct 1`] = `
 <button
   data-radium={true}
-  onClick={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
   style={
     Object {
       "background": "#0074d9",
       "color": "#fff",
-      "width": "2px",
     }
   }
   type="Button"

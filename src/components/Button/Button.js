@@ -9,20 +9,20 @@ class Button extends React.Component {
   static propTypes = {
     /** Default style for button */
     style: PropTypes.object,
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
     style,
   };
 
-  _onClick = () => {
-  };
+  _onClick = () => {};
 
   render() {
-    const { style, inlineStyle, children } = this.props;
+    const { style, onClick, inlineStyle, children } = this.props;
 
     return (
-      <button style={[style.base, style.primary, inlineStyle]} onClick={this._onClick} type="Button">{children}</button>
+      <button style={[style.base, style.primary, inlineStyle]} onClick={onClick} type="Button">{children}</button>
     )
   }
 }
