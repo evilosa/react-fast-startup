@@ -8,3 +8,4 @@ npm-debug.log*
 /.idea
 /.storybook/dist/
 /**/__diff_output__/
+yarn-error.log

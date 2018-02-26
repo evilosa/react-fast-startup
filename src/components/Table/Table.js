@@ -2,6 +2,7 @@ import * as React from 'react'
 import Radium from 'radium'
 import PropTypes from 'prop-types'
 import style from './style'
+import Button from '../Button'
 
 class Table extends React.Component {
 
@@ -9,6 +10,7 @@ class Table extends React.Component {
     items: PropTypes.array.isRequired,
     canAddNewItem: PropTypes.bool,
     children: PropTypes.node,
+    onAddItem: PropTypes.func,
   };
 
   static defaultProps = {
@@ -64,7 +66,7 @@ class Table extends React.Component {
   );
 
   render() {
-    const { children, header } = this.props;
+    const { children, header, onAddItem } = this.props;
     const headerColumns = [];
     const rowColumns = [];
     const footerColumns = [];
@@ -89,6 +91,9 @@ class Table extends React.Component {
       <div style={style.root}>
         <h1>{header}</h1>
 
+        <div className="actions-pane-top">
+          {onAddItem && <Button className="add-new-item-btn" onClick={onAddItem}>Add Item</Button>}
+        </div>
         {/* Header */}
         <div
           className="table-header"

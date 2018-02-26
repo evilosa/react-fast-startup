@@ -118,6 +118,35 @@ describe('Table', () => {
 
     it('should render action', () => {
       expect(table.find('.table-row-action').length).toEqual(2);
-    });
-  });
-});
+    })
+  })
+
+  describe('with provided onAddItem', () => {
+    const items = [
+      { id: '1', title: 'Toast', sum: '$5'},
+      { id: '2', title: 'Chicken', sum: '$15'},
+    ]
+
+    const mockAddItemFunction = jest.fn()
+
+    const table = shallow(
+      <Table
+        items={items}
+        onAddItem={mockAddItemFunction}
+      >
+        <TableColumn/>
+        <TableColumn/>
+        <TableColumn/>
+      </Table>
+    )
+
+    it('should render Add item button', () => {
+      expect(table.find('.add-new-item-btn').length).toEqual(1);
+    })
+
+    it('should call onAddItem function when add button clicked', () => {
+      table.find('.add-new-item-btn').simulate('click')
+      expect(mockAddItemFunction.mock.calls.length).toEqual(1)
+    })
+  })
+})

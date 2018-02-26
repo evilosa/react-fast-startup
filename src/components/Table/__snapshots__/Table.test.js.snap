@@ -15,9 +15,13 @@ exports[`Table renders properly 1`] = `
     key=".0"
   />
   <div
+    className="actions-pane-top"
+    key=".1"
+  />
+  <div
     className="table-header"
     data-radium={true}
-    key=".1"
+    key=".2"
     style={
       Object {
         "backgroundColor": "#FCFDFD",
@@ -34,7 +38,7 @@ exports[`Table renders properly 1`] = `
   <div
     className="table-body"
     data-radium={true}
-    key=".2"
+    key=".3"
     style={
       Object {
         "display": "flex",
@@ -46,7 +50,7 @@ exports[`Table renders properly 1`] = `
   <div
     className="table-footer"
     data-radium={true}
-    key=".3"
+    key=".4"
     style={
       Object {
         "display": "flex",
