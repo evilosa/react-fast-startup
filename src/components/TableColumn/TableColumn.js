@@ -10,12 +10,15 @@ TableColumn.defaultProps = {
   propName: null,
   footer: null,
   width: '1 0',
+  action: false,
 }
 
 TableColumn.propTypes = {
   header: PropTypes.string.isRequired,
-  propName: PropTypes.string.isRequired,
-  width: PropTypes.string
+  propName: PropTypes.string,
+  width: PropTypes.string,
+  action: PropTypes.bool,
+  onClick: PropTypes.func,
 }
 
 TableColumn.displayName = 'TableColumn'

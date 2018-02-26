@@ -101,4 +101,23 @@ describe('Table', () => {
       expect(table.find('.table-row-column').length).toEqual(6);
     });
   });
+
+  describe('when contain TableColumn with action prop', () => {
+    const items = [
+      { id: '1', title: 'Toast', sum: '$5'},
+      { id: '2', title: 'Chicken', sum: '$15'},
+    ];
+
+    const table = shallow(
+      <Table items={items}>
+        <TableColumn/>
+        <TableColumn/>
+        <TableColumn action/>
+      </Table>
+    );
+
+    it('should render action', () => {
+      expect(table.find('.table-row-action').length).toEqual(2);
+    });
+  });
 });

@@ -63,6 +63,16 @@ export const createTableStyle = (colors = TableColors) => ({
     color: colors.headerText,
   },
 
+  tableRowActionColumn: {
+    flex: '1 0',
+    padding: '5px',
+    fontFamily: "'Raleway', sans-serif",
+    fontSize: '12px',
+    fontWeight: '400',
+    lineHeight: '18px',
+    fontStretch: '100%',
+  },
+
   tableRowColumn: {
     flex: '1 0',
     padding: '5px',

@@ -37,8 +37,8 @@ class Table extends React.Component {
   }
 
   _renderHeaders = (headerColumns) => {
-    return headerColumns.map(({header, width}, index) => (
-      <div className="table-header-column" key={index} style={[style.tableHeaderColumn, { flex: width }]}>{header}</div>
+    return headerColumns.map(({header, width, action}, index) => (
+      <div className="table-header-column" key={index} style={[style.tableHeaderColumn, { flex: width }]}>{!action ? header : ''}</div>
     ));
   };
 
@@ -54,7 +54,12 @@ class Table extends React.Component {
   _renderRowColumns = (rowColumns, rowData) => (
     rowColumns.map((column, index) => {
       const columnData = rowData[column.propName];
-      return <div className="table-row-column" key={index} style={style.tableRowColumn}>{columnData}</div>
+      if (column.action) {
+        return <div className="table-row-action" key={index} style={style.tableRowActionColumn}>{columnData}</div>
+      }
+      else {
+        return <div className="table-row-column" key={index} style={style.tableRowColumn}>{columnData}</div>
+      }
     })
   );
 
@@ -68,16 +73,16 @@ class Table extends React.Component {
       if (!child.type || child.type.displayName !== 'TableColumn')
         throw new Error('Child component should be instance of <TableColumn />');
 
-      const { header, propName, footer, width } = child.props;
+      const { header, propName, footer, width, action } = child.props;
 
       // Fill headers columns
-      headerColumns.push({ header, width });
+      headerColumns.push({ header, width, action });
 
       // Fill row columns
-      rowColumns.push({ propName, width });
+      rowColumns.push({ propName, width, action });
 
       // Fill footer
-      footerColumns.push({ footer, width });
+      footerColumns.push({ footer, width, action });
     });
 
     return (
