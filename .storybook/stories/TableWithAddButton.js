@@ -1,0 +1,38 @@
+import React from 'react';
+import { withInfo } from '@storybook/addon-info';
+import { storiesOf } from '@storybook/react';
+import Table from '../../src/components/Table';
+import TableColumn from '../../src/components/TableColumn';
+
+storiesOf('Table', module)
+  .add('with Add button',
+    withInfo({
+      components: { Table },
+      header: true,
+      inline: true,
+      text: 'Table component',
+    })(() => {
+      const items = [
+          { id: '1', title: 'Toast', sum: '$5'},
+          { id: '2', title: 'Chicken', sum: '$15'},
+          { id: '3', title: 'Coffee', sum: '$3'},
+        ];
+
+      const addNewItem = () => {
+        console.log('Add new item');
+      };
+
+      return (
+        <div style={{ display: 'flex'}}>
+          <Table
+            header="Test table"
+            items={items}
+            onAddItem={addNewItem}
+          >
+            <TableColumn header="Id" propName="id"/>
+            <TableColumn header="Title" propName="title"/>
+            <TableColumn header="Sum" propName="sum"/>
+          </Table>
+        </div>
+      )
+    }));

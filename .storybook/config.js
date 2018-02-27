@@ -5,6 +5,7 @@ function loadStories() {
   require('./stories/Buttons');
   require('./stories/Buttons2');
   require('./stories/Table');
+  require('./stories/TableWithAddButton');
 }
 
 

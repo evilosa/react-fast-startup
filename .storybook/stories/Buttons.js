@@ -12,5 +12,9 @@ storiesOf('Button', module)
       inline: true,
       text: 'Her bi tam',
     })(() => (
-    <Button onClick={action('clicked')}>Hello Button</Button>
+      <div>
+        <Button onClick={action('clicked')} type="small">Small</Button>
+        <Button onClick={action('clicked')}>Normal</Button>
+        <Button onClick={action('clicked')} type="big">Big</Button>
+      </div>
   )));

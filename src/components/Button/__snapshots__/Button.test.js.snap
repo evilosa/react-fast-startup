@@ -7,8 +7,12 @@ exports[`Button renders correct 1`] = `
   onMouseLeave={[Function]}
   style={
     Object {
-      "background": "#0074d9",
+      "background": "#222222",
+      "borderRadius": "4px",
       "color": "#fff",
+      "fontSize": "16px",
+      "fontWeight": "300",
+      "padding": "10px",
     }
   }
   type="Button"

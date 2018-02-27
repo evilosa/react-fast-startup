@@ -89,31 +89,50 @@ class Table extends React.Component {
 
     return (
       <div style={style.root}>
-        <h1>{header}</h1>
-
-        <div className="actions-pane-top">
-          {onAddItem && <Button className="add-new-item-btn" onClick={onAddItem}>Add Item</Button>}
-        </div>
-        {/* Header */}
         <div
-          className="table-header"
-          style={style.header}
+          className="root-top"
+          style={style.rootTop}
         >
-          {this._renderHeaders(headerColumns)}
+          <h1>{header}</h1>
+          <div
+            className="actions-pane-top"
+            style={style.tableTopActions}
+          >
+            {onAddItem && <Button className="add-new-item-btn" onClick={onAddItem} type="small">Add Item</Button>}
+          </div>
         </div>
 
-        {/* Body */}
         <div
-          className="table-body"
-          style={style.body}
+          className="root-body"
+          style={style.rootBody}
         >
-          {rowColumns.length > 0 && this._renderRows(rowColumns)}
+          {/* Header */}
+          <div
+            className="table-header"
+            style={style.header}
+          >
+            {this._renderHeaders(headerColumns)}
+          </div>
+
+          {/* Body */}
+          <div
+            className="table-body"
+            style={style.body}
+          >
+            {rowColumns.length > 0 && this._renderRows(rowColumns)}
+          </div>
+
+          {/* Footer */}
+          <div
+            className="table-footer"
+            style={style.footer}
+          >
+          </div>
         </div>
 
-        {/* Footer */}
         <div
-          className="table-footer"
-          style={style.footer}
+          className="root-footer"
+          style={style.rootFooter}
         >
         </div>
       </div>

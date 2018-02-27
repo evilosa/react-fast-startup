@@ -1,5 +1,7 @@
 export const TableColors = {
   baseBackground: '#fff',
+  rootBorder: '#edf0f5',
+  rootColor: '#5c6d77',
   evenBackground: '#EEF3F5',
   border: '#D7DBDD',
   headerBackground: '#FCFDFD',
@@ -11,6 +13,31 @@ export const createTableStyle = (colors = TableColors) => ({
     display: 'flex',
     flexDirection: 'column',
     flex: '1 0',
+  },
+
+  rootTop: {
+    display: 'flex',
+    alignItems: 'center',
+  },
+
+  rootBody: {
+    display: 'flex',
+    flexDirection: 'column',
+    flex: '1 0',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: colors.rootBorder,
+    borderRadius: '4px',
+  },
+
+  rootFooter: {
+    display: 'flex',
+  },
+
+  tableTopActions: {
+    display: 'flex',
+    flex: '1 0',
+    justifyContent: 'flex-end',
   },
 
   header: {
@@ -57,10 +84,12 @@ export const createTableStyle = (colors = TableColors) => ({
     alignItems: 'center',
     fontFamily: "'Raleway', sans-serif",
     fontSize: '12px',
-    fontWeight: '400',
+    fontWeight: '600',
     lineHeight: '18px',
     fontStretch: '100%',
-    color: colors.headerText,
+    borderBottomWidth: '1px',
+    borderBottomColor: '#000',
+    borderBottomStyle: 'solid',
   },
 
   tableRowActionColumn: {
@@ -81,6 +110,7 @@ export const createTableStyle = (colors = TableColors) => ({
     fontWeight: '400',
     lineHeight: '18px',
     fontStretch: '100%',
+    color: colors.rootColor,
   }
 })
 
