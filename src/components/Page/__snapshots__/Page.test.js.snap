@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page renders properly 1`] = `
+<div
+  className="page-root"
+>
+  <div
+    className="page-header"
+  />
+  <div
+    className="page-content"
+  />
+  <div
+    className="page-footer"
+  />
+</div>
+`;
