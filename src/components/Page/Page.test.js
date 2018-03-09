@@ -25,8 +25,16 @@ describe('Page', () => {
       </Page>
     )
 
+    it('should render empty content', () => {
+      expect(page.find('.page-content').exists()).toBeTruthy()
+    })
+
     it('should render footer', () => {
-      expect(page.find('.page-footer').exists()).toBeTruthy();
+      expect(page.find('.page-footer').exists()).toBeTruthy()
+    })
+
+    it('should render footer children', () => {
+      expect(page.find('.test-footer-content').exists()).toBeTruthy()
     })
   })
 })
