@@ -6,6 +6,7 @@ export LoadingButton from './components/LoadingButton';
 export NavBar from './components/NavBar';
 export NavBarItem from './components/NavBarItem';
 export Page from './components/Page';
+export PageContent from './components/PageContent';
 export PageFooter from './components/PageFooter';
 export Table from './components/Table';
 export TableColumn from './components/TableColumn';
