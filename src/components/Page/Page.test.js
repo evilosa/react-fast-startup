@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Page from './Page'
+import PageContent from '../PageContent'
 import PageFooter from '../PageFooter'
 
 describe('Page', () => {
@@ -46,6 +47,28 @@ describe('Page', () => {
     it('should not be rendered if function is not provided', () => {
       const page = shallow(<Page/>)
       expect(page.find('button').length).toEqual(0)
+    })
+  })
+
+  describe('with content', () => {
+    const page = shallow(
+      <Page>
+        <PageContent>
+          <div className='test-page-content'>Footer content</div>
+        </PageContent>
+      </Page>
+    )
+
+    it('should render empty footer', () => {
+      expect(page.find('.page-footer').exists()).toBeTruthy()
+    })
+
+    it('should render content', () => {
+      expect(page.find('.page-content').exists()).toBeTruthy()
+    })
+
+    it('should render content children', () => {
+      expect(page.find('.test-page-content').exists()).toBeTruthy()
     })
   })
 
