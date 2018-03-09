@@ -32,11 +32,15 @@ describe('Table', () => {
   });
 
   describe('state', () => {
-    const table = mount(<Table/>);
+    const items = [
+      { id: '1', title: 'Toast', sum: '$5'},
+      { id: '2', title: 'Chicken', sum: '$15'},
+    ];
+    const testItem = { id: '1', name: 'Test name' };
 
     it('initialize default items state and update state with new items prop', () => {
-      const testItem = { id: '1', name: 'Test name' };
-      expect(table.state().items).toEqual([]);
+      const table = mount(<Table items={items}/>);
+      expect(table.state().items).toEqual(items);
       table.setProps({items: [ testItem ]});
       expect(table.state().items).toEqual([ testItem ]);
     });
@@ -161,12 +165,9 @@ describe('Table', () => {
       { id: '2', title: 'Chicken', sum: '$15'},
     ]
 
-    const mockAddItemFunction = jest.fn()
-
     const table =
       <Table
         items={items}
-        onAddItem={mockAddItemFunction}
       >
         <div>Some wrong data</div>
         <TableColumn/>
