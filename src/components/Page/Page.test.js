@@ -93,4 +93,15 @@ describe('Page', () => {
       expect(page.find('.test-footer-content').exists()).toBeTruthy()
     })
   })
+
+  describe('with wrong children', () => {
+    const component =
+      <Page>
+        <div>Wrong children</div>
+      </Page>
+
+    it('should throw error', () => {
+      expect(() => shallow(component)).toThrow();
+    })
+  })
 })

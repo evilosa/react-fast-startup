@@ -2,12 +2,17 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Table from './Table';
 import TableColumn from '../TableColumn/index';
+import { createTableStyle } from './style'
 
 describe('Table', () => {
   it('renders properly', () => {
     const table = shallow(<Table/>);
     expect(table).toMatchSnapshot();
   });
+
+  it('should have correct style', () => {
+    expect(createTableStyle()).toMatchSnapshot();
+  })
 
   describe('props ', () => {
     const table = mount(<Table/>);
@@ -27,11 +32,15 @@ describe('Table', () => {
   });
 
   describe('state', () => {
-    const table = mount(<Table/>);
+    const items = [
+      { id: '1', title: 'Toast', sum: '$5'},
+      { id: '2', title: 'Chicken', sum: '$15'},
+    ];
+    const testItem = { id: '1', name: 'Test name' };
 
     it('initialize default items state and update state with new items prop', () => {
-      const testItem = { id: '1', name: 'Test name' };
-      expect(table.state().items).toEqual([]);
+      const table = mount(<Table items={items}/>);
+      expect(table.state().items).toEqual(items);
       table.setProps({items: [ testItem ]});
       expect(table.state().items).toEqual([ testItem ]);
     });
@@ -147,6 +156,26 @@ describe('Table', () => {
     it('should call onAddItem function when add button clicked', () => {
       table.find('.add-new-item-btn').simulate('click')
       expect(mockAddItemFunction.mock.calls.length).toEqual(1)
+    })
+  })
+
+  describe('with wrong children', () => {
+    const items = [
+      { id: '1', title: 'Toast', sum: '$5'},
+      { id: '2', title: 'Chicken', sum: '$15'},
+    ]
+
+    const table =
+      <Table
+        items={items}
+      >
+        <div>Some wrong data</div>
+        <TableColumn/>
+        <TableColumn/>
+      </Table>
+
+    it('should throw error', () => {
+      expect(() => shallow(table)).toThrow();
     })
   })
 })

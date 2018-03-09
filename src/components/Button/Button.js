@@ -18,8 +18,6 @@ class Button extends React.Component {
     type: 'normal',
   };
 
-  _onClick = () => {};
-
   render() {
     const { style, onClick, inlineStyle, children, type } = this.props;
 

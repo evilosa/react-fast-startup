@@ -18,3 +18,40 @@ exports[`Button renders correct 1`] = `
   type="Button"
 />
 `;
+
+exports[`Button should have correct style 1`] = `
+Object {
+  "base": Object {
+    ":hover": Object {
+      "background": "#292929",
+    },
+    "background": "#222222",
+    "color": "#fff",
+  },
+  "big": Object {
+    "borderRadius": "4px",
+    "fontSize": "24px",
+    "fontWeight": "300",
+    "minWidth": "150px",
+    "padding": "15px",
+  },
+  "normal": Object {
+    "borderRadius": "4px",
+    "fontSize": "16px",
+    "fontWeight": "300",
+    "padding": "10px",
+  },
+  "primary": Object {
+    "background": "#222222",
+  },
+  "small": Object {
+    "borderRadius": "4px",
+    "fontSize": "12px",
+    "fontWeight": "300",
+    "padding": "5px",
+  },
+  "warning": Object {
+    "background": "#f00",
+  },
+}
+`;
