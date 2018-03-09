@@ -21,8 +21,6 @@ exports[`Page renders properly 1`] = `
     style={
       Object {
         "display": "flex",
-        "flex": "1 0",
-        "height": "auto",
       }
     }
   />
@@ -45,7 +43,6 @@ exports[`Page renders properly 1`] = `
     style={
       Object {
         "display": "flex",
-        "flex": "1 0",
         "height": "auto",
       }
     }

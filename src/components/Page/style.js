@@ -14,8 +14,19 @@ export const createPageStyle = (/*colors = PageColors*/) => ({
 
   header: {
     display: 'flex',
+  },
+
+  headerTitle: {
+    display: 'flex',
     flex: '1 0',
-    height: 'auto',
+    alignItems: 'center',
+  },
+
+  headerButton: {
+    display: 'flex',
+    flex: '1 0',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
   },
 
   content: {
@@ -26,7 +37,7 @@ export const createPageStyle = (/*colors = PageColors*/) => ({
 
   footer: {
     display: 'flex',
-    flex: '1 0',
+    // flex: '1 0',
     height: 'auto',
   }
 });

@@ -16,8 +16,8 @@ class Page extends React.Component {
         className='page-header'
         style={style.header}
       >
-        {header && <h1>{header}</h1>}
-        {onClose && <button onClick={onClose}>X</button>}
+        {header && <div style={style.headerTitle}><h1>{header}</h1></div>}
+        {onClose && <div style={style.headerButton}><button onClick={onClose}>X</button></div>}
       </div>
     )
   }
