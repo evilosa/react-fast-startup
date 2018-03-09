@@ -154,4 +154,27 @@ describe('Table', () => {
       expect(mockAddItemFunction.mock.calls.length).toEqual(1)
     })
   })
+
+  describe('with wrong children', () => {
+    const items = [
+      { id: '1', title: 'Toast', sum: '$5'},
+      { id: '2', title: 'Chicken', sum: '$15'},
+    ]
+
+    const mockAddItemFunction = jest.fn()
+
+    const table =
+      <Table
+        items={items}
+        onAddItem={mockAddItemFunction}
+      >
+        <div>Some wrong data</div>
+        <TableColumn/>
+        <TableColumn/>
+      </Table>
+
+    it('should throw error', () => {
+      expect(() => shallow(table)).toThrow();
+    })
+  })
 })
