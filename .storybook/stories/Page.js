@@ -14,15 +14,19 @@ storiesOf('Page', module)
       inline: true,
       text: 'Default page layout',
     })(() => (
-      <Page
-        header='Page header'
-        onClose={action('clicked')}
+      <div
+        style={{height: '400px', width: '100%'}}
       >
-        <PageContent>
-          <div>Content</div>
-        </PageContent>
-        <PageFooter>
-          <div>Footer</div>
-        </PageFooter>
-      </Page>
+        <Page
+          header='Page header'
+          onClose={action('clicked')}
+        >
+          <PageContent>
+            <div>Content</div>
+          </PageContent>
+          <PageFooter>
+            <div>Footer</div>
+          </PageFooter>
+        </Page>
+      </div>
   )));

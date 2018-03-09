@@ -1,4 +1,6 @@
 import * as React from 'react'
+import style from './style';
+import Radium from 'radium';
 
 class Page extends React.Component {
 
@@ -10,7 +12,10 @@ class Page extends React.Component {
     const { header, onClose } = this.props;
 
     return (
-      <div className='page-header'>
+      <div
+        className='page-header'
+        style={style.header}
+      >
         {header && <h1>{header}</h1>}
         {onClose && <button onClick={onClose}>X</button>}
       </div>
@@ -18,13 +23,19 @@ class Page extends React.Component {
   }
 
   _renderContent = content => (
-    <div className='page-content'>
+    <div
+      className='page-content'
+      style={style.content}
+    >
       {content}
     </div>
   )
 
   _renderFooter = footer => (
-    <div className='page-footer'>
+    <div
+      className='page-footer'
+      style={style.footer}
+    >
       {footer}
     </div>
   )
@@ -55,7 +66,10 @@ class Page extends React.Component {
     })
 
     return (
-      <div className='page-root'>
+      <div
+        className='page-root'
+        style={style.root}
+      >
         {this._renderHeader()}
         {this._renderContent(content)}
         {this._renderFooter(footer)}
@@ -64,4 +78,4 @@ class Page extends React.Component {
   }
 }
 
-export default Page
+export default Radium(Page);

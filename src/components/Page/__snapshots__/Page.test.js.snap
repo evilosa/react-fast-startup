@@ -3,15 +3,20 @@
 exports[`Page renders properly 1`] = `
 <div
   className="page-root"
+  data-radium={true}
 >
   <div
     className="page-header"
+    data-radium={true}
+    key=".0"
   />
   <div
     className="page-content"
+    key=".1"
   />
   <div
     className="page-footer"
+    key=".2"
   />
 </div>
 `;
