@@ -109,3 +109,99 @@ exports[`Table renders properly 1`] = `
   />
 </div>
 `;
+
+exports[`Table should have correct style 1`] = `
+Object {
+  "body": Object {
+    "display": "flex",
+    "flex": "1 0",
+    "flexDirection": "column",
+  },
+  "even": Object {
+    "background": "#EEF3F5",
+  },
+  "footer": Object {
+    "display": "flex",
+    "flex": "1 0",
+    "maxHeight": "30px",
+    "minHeight": "30px",
+  },
+  "header": Object {
+    "backgroundColor": "#FCFDFD",
+    "borderBottomColor": "#D7DBDD",
+    "borderBottomStyle": "solid",
+    "borderBottomWidth": "1px",
+    "display": "flex",
+    "flex": "1 0",
+    "maxHeight": "30px",
+    "minHeight": "30px",
+  },
+  "root": Object {
+    "display": "flex",
+    "flex": "1 0",
+    "flexDirection": "column",
+  },
+  "rootBody": Object {
+    "borderColor": "#edf0f5",
+    "borderRadius": "4px",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "display": "flex",
+    "flex": "1 0",
+    "flexDirection": "column",
+  },
+  "rootFooter": Object {
+    "display": "flex",
+  },
+  "rootTop": Object {
+    "alignItems": "center",
+    "display": "flex",
+  },
+  "tableHeaderColumn": Object {
+    "alignItems": "center",
+    "borderBottomColor": "#000",
+    "borderBottomStyle": "solid",
+    "borderBottomWidth": "1px",
+    "display": "flex",
+    "flex": "1 0",
+    "fontFamily": "'Raleway', sans-serif",
+    "fontSize": "12px",
+    "fontStretch": "100%",
+    "fontWeight": "600",
+    "justifyContent": "flex-start",
+    "lineHeight": "18px",
+    "padding": "5px",
+  },
+  "tableRow": Object {
+    "background": "#fff",
+    "display": "flex",
+    "flex": "1 0",
+    "maxHeight": "30px",
+    "minHeight": "30px",
+  },
+  "tableRowActionColumn": Object {
+    "flex": "1 0",
+    "fontFamily": "'Raleway', sans-serif",
+    "fontSize": "12px",
+    "fontStretch": "100%",
+    "fontWeight": "400",
+    "lineHeight": "18px",
+    "padding": "5px",
+  },
+  "tableRowColumn": Object {
+    "color": "#5c6d77",
+    "flex": "1 0",
+    "fontFamily": "'Raleway', sans-serif",
+    "fontSize": "12px",
+    "fontStretch": "100%",
+    "fontWeight": "400",
+    "lineHeight": "18px",
+    "padding": "5px",
+  },
+  "tableTopActions": Object {
+    "display": "flex",
+    "flex": "1 0",
+    "justifyContent": "flex-end",
+  },
+}
+`;

@@ -2,12 +2,17 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Table from './Table';
 import TableColumn from '../TableColumn/index';
+import { createTableStyle } from './style'
 
 describe('Table', () => {
   it('renders properly', () => {
     const table = shallow(<Table/>);
     expect(table).toMatchSnapshot();
   });
+
+  it('should have correct style', () => {
+    expect(createTableStyle()).toMatchSnapshot();
+  })
 
   describe('props ', () => {
     const table = mount(<Table/>);
