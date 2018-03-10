@@ -2,6 +2,10 @@
 
 exports[`Select renders properly 1`] = `
 <div>
-  Select
+  <div
+    className="select-btn-open"
+  >
+    Select button
+  </div>
 </div>
 `;

@@ -19,10 +19,19 @@ describe('Select', () => {
   describe('component select button', () => {
     const component = shallow(<Select/>)
 
-    xit('should be visible if state.isOptionsVisible=false', () => {
+    it('should be visible if state.isOptionsVisible=false', () => {
+      expect(component.state().isOptionsVisible).toBeFalsy()
       expect(component.find('.select-btn-open').length).toEqual(1)
     })
-    xit('should be invisible if state.isOptionsVisible=true')
+
+    it('should be invisible if state.isOptionsVisible=true', () => {
+      component.setState({isOptionsVisible: true})
+      expect(component.state().isOptionsVisible).toBeTruthy()
+      expect(component.find('.select-btn-open').length).toEqual(0)
+    })
+
+    xit('should call handleSelect when clicked')
+    xit('should change state.isOptionsVisible to true when clicked')
   })
 
   describe('component refresh button', () => {
