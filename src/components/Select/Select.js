@@ -66,31 +66,43 @@ class Select extends React.Component {
         options: [],
       }),
       () => {
-        const { loadOptions, loadOptionsAsync } = this.props;
+        const { loadOptions, loadOptionsAsync } = this.props
         loadOptions && loadOptions()
         loadOptionsAsync && loadOptionsAsync()
       })
   }
 
   _renderRefreshButton = () => {
-    const { loadOptions, loadOptionsAsync } = this.props;
+    const { loadOptions, loadOptionsAsync } = this.props
 
     if (loadOptions || loadOptionsAsync)
       return <div className='select-btn-refresh' onClick={() => this._handleRefreshClick()}>Refresh button</div>
   }
 
+  _handleCleanClick = () => {
+    this.setState(
+      prev => ({
+        ...prev,
+        value: '',
+      }),
+      () => {
+        const { onValueChanged } = this.props
+        onValueChanged && onValueChanged('')
+      })
+  }
+
   _renderCleanButton = () => {
-    const { value } = this.state;
+    const { value } = this.state
 
     if (value)
-      return <div className='select-btn-clean'>Clean button</div>
+      return <div className='select-btn-clean' onClick={() => this._handleCleanClick()}>Clean button</div>
   }
 
   render() {
-    const { loadOptions, loadOptionsAsync } = this.props;
+    const { loadOptions, loadOptionsAsync } = this.props
 
     if (loadOptions && loadOptionsAsync)
-      throw new Error('Select component should have only one of functions "loadOptions" or "loadOptionsAsync"');
+      throw new Error('Select component should have only one of functions "loadOptions" or "loadOptionsAsync"')
 
     return (
       <div>

@@ -176,7 +176,7 @@ describe('Select', () => {
       expect(button.length).toEqual(1)
       button.simulate('click')
       expect(component.state().options).toEqual([])
-      expect(loadOptionsAsyncFn.mock.calls.length).toEqual(1)
+      expect(loadOptionsAsyncFn).toHaveBeenCalled()
     })
 
     it('should throw error if loadOptions and loadOptionsAsync both defined', () => {
@@ -191,9 +191,33 @@ describe('Select', () => {
       expect(component.find('.select-btn-clean').length).toEqual(1)
     })
 
-    xit('should be invisible if value undefined')
-    xit('should call handleClear when clicked')
-    xit('should clear value and call onValueChange when clicked')
+    it('should be invisible if value undefined', () => {
+      const component = shallow(<Select/>)
+      expect(component.find('.select-btn-clean').length).toEqual(0)
+    })
+
+    it('should call handleClear when clicked', () => {
+      const component = shallow(<Select value={'testValue'}/>)
+      const instance = component.instance();
+      const button = component.find('.select-btn-clean')
+      const spy = jest.spyOn(instance, '_handleCleanClick')
+
+      expect(button.length).toEqual(1)
+      expect(spy).not.toHaveBeenCalled()
+      button.simulate('click')
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('should clear value and call onValueChange when clicked', () => {
+      const onValueChanged = jest.fn()
+      const component = shallow(<Select value={'testValue'} onValueChanged={onValueChanged}/>)
+      const button = component.find('.select-btn-clean')
+
+      expect(button.length).toEqual(1)
+      button.simulate('click')
+      expect(component.state().value).toEqual('')
+      expect(onValueChanged).toHaveBeenCalled()
+    })
   })
 
   describe('component input', () => {
