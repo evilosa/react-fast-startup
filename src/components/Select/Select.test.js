@@ -220,7 +220,7 @@ describe('Select', () => {
     })
   })
 
-  describe('component input', () => {
+  describe('search input', () => {
     xit('should be visible if loadOptions function is defined')
     xit('should be visible if loadOptionsAsync function is defined')
     xit('should be invisible if options is defined')
@@ -231,6 +231,11 @@ describe('Select', () => {
     xit('should call handleSearch function when user input something')
     xit('should call loadOptions after user input if function defined')
     xit('should call loadOptionsAsync after user input if function defined')
+  })
+
+  describe('value text', () => {
+    xit('should be visible if state.isOptionsVisible=false')
+    xit('should not be visible if state.isOptionsVisible=true')
   })
 
   describe('options list', () => {
