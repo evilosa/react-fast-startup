@@ -43,13 +43,29 @@ describe('Select', () => {
       { id: 'id1', value: 'value1'},
       { id: 'id2', value: 'value2'},
     ]
-    const component = shallow(<Select options={options}/>)
 
     it('options set to state.options in constructor', () => {
+      const component = shallow(<Select options={options}/>)
       expect(component.state().options).toBe(options)
     })
 
-    xit('options should update state.options')
+    it('new options should update state.options', () => {
+      const component = mount(<Select options={options}/>)
+      const newOptions = [{ id: 'id3', value: 'value3' }]
+
+      component.setProps({ options: newOptions })
+      expect(component.state().options).toEqual(newOptions)
+    })
+
+    it('options should call componentWillReceiveProps', () => {
+      const component = mount(<Select options={options}/>)
+      const instance = component.instance()
+      const spy = jest.spyOn(instance, 'componentWillReceiveProps')
+
+      expect(spy).not.toHaveBeenCalled()
+      component.setProps({ someDifferentProp: 1 })
+      expect(spy).toHaveBeenCalled()
+    })
   })
 
   describe('component select button', () => {

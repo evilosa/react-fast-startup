@@ -25,6 +25,16 @@ class Select extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.options !== this.props.options)
+    {
+      this.setState(prev => ({
+        ...prev,
+        options: nextProps.options,
+      }))
+    }
+  }
+
   _handleSelectClick = () => {
     this.setState(prev => ({
       ...prev,
