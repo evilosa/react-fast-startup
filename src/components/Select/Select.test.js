@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import Select from './Select'
 
 describe('Select', () => {
@@ -8,12 +8,48 @@ describe('Select', () => {
     expect(component).toMatchSnapshot()
   })
 
-  it('has correct default state', () => {
+  describe('without props', () => {
+    const component = mount(<Select/>)
+    const props = component.props();
+
+    it('have default prop "title"', () => {
+      expect(props.title).toEqual('')
+    })
+
+    it('have default prop "options" equal []', () => {
+      expect(props.options).toEqual([])
+    })
+  })
+
+  describe('default state', () => {
     const component = shallow(<Select/>)
     const state = component.state()
-    expect(state.isLoading).toBeFalsy()
-    expect(state.options).toEqual([])
-    expect(state.isOptionsVisible).toBeFalsy()
+
+    it('for isLoading is false', () => {
+      expect(state.isLoading).toBeFalsy()
+    })
+
+    it('for options equal []', () => {
+      expect(state.options).toEqual([])
+    })
+
+    it('for isOptionsVisible is false', () => {
+      expect(state.isOptionsVisible).toBeFalsy()
+    })
+  })
+
+  describe('prop', () => {
+    const options = [
+      { id: 'id1', value: 'value1'},
+      { id: 'id2', value: 'value2'},
+    ]
+    const component = shallow(<Select options={options}/>)
+
+    it('options set to state.options in constructor', () => {
+      expect(component.state().options).toBe(options)
+    })
+
+    xit('options should update state.options')
   })
 
   describe('component select button', () => {
@@ -34,10 +70,10 @@ describe('Select', () => {
       expect(component.find('.select-btn-open').length).toEqual(0)
     })
 
-    it('should call _handleSelect when clicked', () => {
+    it('should call _handleSelectClick when clicked', () => {
       const instance = component.instance();
       const button = component.find('.select-btn-open')
-      const spy = jest.spyOn(instance, '_handleSelect')
+      const spy = jest.spyOn(instance, '_handleSelectClick')
 
       expect(spy).not.toHaveBeenCalled()
       button.simulate('click')
@@ -54,12 +90,48 @@ describe('Select', () => {
   })
 
   describe('component refresh button', () => {
-    xit('should be visible if loadOptions function is defined')
-    xit('should be visible if loadOptionsAsync function is defined')
-    xit('should be invisible if loadOptions is undefined')
-    xit('should be invisible if loadOptionsAsync is undefined')
-    xit('should call handleRefresh when clicked')
-    xit('should clean options and call loadOptions if clicked and function is defined')
+    it('should be visible if loadOptions function is defined', () => {
+      const loadOptionsFn = jest.fn();
+      const component = shallow(<Select loadOptions={loadOptionsFn}/>)
+
+      expect(component.find('.select-btn-refresh').length).toEqual(1)
+    })
+
+    it('should be visible if loadOptionsAsync function is defined', () => {
+      const loadOptionsAsyncFn = jest.fn();
+      const component = shallow(<Select loadOptionsAsync={loadOptionsAsyncFn}/>)
+
+      expect(component.find('.select-btn-refresh').length).toEqual(1)
+    })
+
+    it('should not be visible if loadOptions and loadOptionsAsync is undefined', () => {
+      const component = shallow(<Select/>)
+      expect(component.find('.select-btn-refresh').length).toEqual(0)
+    })
+
+    it('should call _handleRefreshClick when clicked', () => {
+      const component = shallow(<Select loadOptions={() => {}}/>)
+      const instance = component.instance();
+      const button = component.find('.select-btn-refresh')
+      const spy = jest.spyOn(instance, '_handleRefreshClick')
+
+      expect(button.length).toEqual(1)
+      expect(spy).not.toHaveBeenCalled()
+      button.simulate('click')
+      expect(spy).toHaveBeenCalled()
+    })
+
+    xit('should clean options and call loadOptions if clicked and function is defined', () => {
+      const loadOptionsFn = jest.fn()
+      const component = shallow(<Select loadOptions={loadOptionsFn} options={[{id: 'testId'}]}/>)
+      const button = component.find('.select-btn-refresh')
+
+      expect(button.length).toEqual(1)
+      button.simulate('click')
+      expect(component.state().options).toEqual([])
+      expect(loadOptionsFn.mock.calls.length).toEqual(1)
+    })
+
     xit('should clean options and call loadOptionsAsync if clicked and function is defined')
   })
 
