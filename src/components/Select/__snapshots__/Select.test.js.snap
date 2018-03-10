@@ -13,3 +13,11 @@ exports[`Select renders properly 1`] = `
   </div>
 </div>
 `;
+
+exports[`Select value text should display provided value 1`] = `
+<div
+  className="select-value-text"
+>
+  testValue
+</div>
+`;

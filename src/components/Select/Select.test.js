@@ -247,8 +247,12 @@ describe('Select', () => {
       expect(component.find('.select-value-text').length).toEqual(0)
     })
 
-    xit('should display provided value', () => {
-
+    it('should display provided value', () => {
+      const value = 'testValue'
+      const component = shallow(<Select value={value}/>)
+      const valueTextNode = component.find('.select-value-text')
+      expect(valueTextNode.length).toEqual(1)
+      expect(valueTextNode).toMatchSnapshot()
     })
   })
 
