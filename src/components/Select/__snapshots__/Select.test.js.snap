@@ -3,6 +3,9 @@
 exports[`Select renders properly 1`] = `
 <div>
   <div
+    className="select-value-text"
+  />
+  <div
     className="select-btn-open"
     onClick={[Function]}
   >

@@ -234,8 +234,22 @@ describe('Select', () => {
   })
 
   describe('value text', () => {
-    xit('should be visible if state.isOptionsVisible=false')
-    xit('should not be visible if state.isOptionsVisible=true')
+    it('should be visible if state.isOptionsVisible=false', () => {
+      const component = shallow(<Select />)
+      expect(component.find('.select-value-text').length).toEqual(1)
+    })
+
+    it('should not be visible if state.isOptionsVisible=true', () => {
+      const component = shallow(<Select />)
+      component.setState({isOptionsVisible: true})
+
+      expect(component.state().isOptionsVisible).toBeTruthy()
+      expect(component.find('.select-value-text').length).toEqual(0)
+    })
+
+    xit('should display provided value', () => {
+
+    })
   })
 
   describe('options list', () => {

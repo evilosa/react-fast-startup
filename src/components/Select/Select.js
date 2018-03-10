@@ -112,6 +112,13 @@ class Select extends React.Component {
       return <div className='select-btn-clean' onClick={() => this._handleCleanClick()}>Clean button</div>
   }
 
+  _renderValueText = () => {
+    const { isOptionsVisible, value } = this.state
+
+    if (!isOptionsVisible)
+      return <div className='select-value-text'>{value}</div>
+  }
+
   render() {
     const { loadOptions, loadOptionsAsync } = this.props
 
@@ -120,6 +127,7 @@ class Select extends React.Component {
 
     return (
       <div>
+        {this._renderValueText()}
         {this._renderSelectButton()}
         {this._renderRefreshButton()}
         {this._renderCleanButton()}
