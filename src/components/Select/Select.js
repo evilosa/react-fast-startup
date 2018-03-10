@@ -49,7 +49,15 @@ class Select extends React.Component {
   }
 
   _handleRefreshClick = () => {
-
+    this.setState(
+      prev => ({
+        ...prev,
+        options: [],
+      }),
+      () => {
+        const { loadOptions } = this.props;
+        loadOptions()
+      })
   }
 
   _renderRefreshButton = () => {

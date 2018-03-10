@@ -137,7 +137,7 @@ describe('Select', () => {
       expect(spy).toHaveBeenCalled()
     })
 
-    xit('should clean options and call loadOptions if clicked and function is defined', () => {
+    it('should clean options and call loadOptions if clicked and function is defined', () => {
       const loadOptionsFn = jest.fn()
       const component = shallow(<Select loadOptions={loadOptionsFn} options={[{id: 'testId'}]}/>)
       const button = component.find('.select-btn-refresh')
