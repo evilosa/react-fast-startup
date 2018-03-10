@@ -55,8 +55,9 @@ class Select extends React.Component {
         options: [],
       }),
       () => {
-        const { loadOptions } = this.props;
-        loadOptions()
+        const { loadOptions, loadOptionsAsync } = this.props;
+        loadOptions && loadOptions()
+        loadOptionsAsync && loadOptionsAsync()
       })
   }
 
@@ -68,6 +69,11 @@ class Select extends React.Component {
   }
 
   render() {
+    const { loadOptions, loadOptionsAsync } = this.props;
+
+    if (loadOptions && loadOptionsAsync)
+      throw new Error('Select component should have only one of functions "loadOptions" or "loadOptionsAsync"');
+
     return (
       <div>
         {this._renderSelectButton()}

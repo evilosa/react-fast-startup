@@ -148,7 +148,21 @@ describe('Select', () => {
       expect(loadOptionsFn.mock.calls.length).toEqual(1)
     })
 
-    xit('should clean options and call loadOptionsAsync if clicked and function is defined')
+    it('should clean options and call loadOptionsAsync if clicked and function is defined', () => {
+      const loadOptionsAsyncFn = jest.fn()
+      const component = shallow(<Select loadOptionsAsync={loadOptionsAsyncFn} options={[{id: 'testId'}]}/>)
+      const button = component.find('.select-btn-refresh')
+
+      expect(button.length).toEqual(1)
+      button.simulate('click')
+      expect(component.state().options).toEqual([])
+      expect(loadOptionsAsyncFn.mock.calls.length).toEqual(1)
+    })
+
+    it('should throw error if loadOptions and loadOptionsAsync both defined', () => {
+      const component = <Select loadOptions={() => {}} loadOptionsAsync={() => {}}/>
+      expect(() => shallow(component)).toThrow();
+    })
   })
 
   describe('component clear button', () => {
