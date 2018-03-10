@@ -12,8 +12,12 @@ describe('Select', () => {
     const component = mount(<Select/>)
     const props = component.props();
 
-    it('have default prop "title"', () => {
+    it('have default empty prop "title"', () => {
       expect(props.title).toEqual('')
+    })
+
+    it('have default empty prop "value"', () => {
+      expect(props.value).toEqual('')
     })
 
     it('have default prop "options" equal []', () => {
@@ -27,6 +31,10 @@ describe('Select', () => {
 
     it('for isLoading is false', () => {
       expect(state.isLoading).toBeFalsy()
+    })
+
+    it('for value is empty', () => {
+      expect(state.value).toEqual('')
     })
 
     it('for options equal []', () => {
@@ -43,6 +51,7 @@ describe('Select', () => {
       { id: 'id1', value: 'value1'},
       { id: 'id2', value: 'value2'},
     ]
+    const value = 'newTestValue'
 
     it('options set to state.options in constructor', () => {
       const component = shallow(<Select options={options}/>)
@@ -57,7 +66,18 @@ describe('Select', () => {
       expect(component.state().options).toEqual(newOptions)
     })
 
-    it('options should call componentWillReceiveProps', () => {
+    it('value set to state.value in constructor', () => {
+      const component = shallow(<Select value={value}/>)
+      expect(component.state().value).toBe(value)
+    })
+
+    it('new value should update state.value', () => {
+      const component = mount(<Select value='initValue'/>)
+      component.setProps({ value: value })
+      expect(component.state().value).toEqual(value)
+    })
+
+    it('should call componentWillReceiveProps when receive new', () => {
       const component = mount(<Select options={options}/>)
       const instance = component.instance()
       const spy = jest.spyOn(instance, 'componentWillReceiveProps')
@@ -161,12 +181,16 @@ describe('Select', () => {
 
     it('should throw error if loadOptions and loadOptionsAsync both defined', () => {
       const component = <Select loadOptions={() => {}} loadOptionsAsync={() => {}}/>
-      expect(() => shallow(component)).toThrow();
+      expect(() => shallow(component)).toThrow()
     })
   })
 
   describe('component clear button', () => {
-    xit('should be visible if value defined')
+    xit('should be visible if value defined', () => {
+      const component = shallow(<Select value={'id1'}/>)
+      expect(component.find('select-btn-clear').length).toEqual(1)
+    })
+
     xit('should be invisible if value undefined')
     xit('should call handleClear when clicked')
     xit('should clear value and call onValueChange when clicked')

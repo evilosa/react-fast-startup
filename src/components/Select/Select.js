@@ -6,21 +6,24 @@ class Select extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.object),
+    value: PropTypes.string,
   };
 
   static defaultProps = {
     title: '',
+    value: '',
     options: [],
   };
 
   constructor(props) {
     super(props)
 
-    const { options } = this.props;
+    const { options, value } = this.props;
 
     this.state = {
       isLoading: false,
       options,
+      value,
       isOptionsVisible: false
     }
   }
@@ -31,6 +34,14 @@ class Select extends React.Component {
       this.setState(prev => ({
         ...prev,
         options: nextProps.options,
+      }))
+    }
+
+    if (nextProps.value !== this.props.value)
+    {
+      this.setState(prev => ({
+        ...prev,
+        value: nextProps.value,
       }))
     }
   }
@@ -68,6 +79,13 @@ class Select extends React.Component {
       return <div className='select-btn-refresh' onClick={() => this._handleRefreshClick()}>Refresh button</div>
   }
 
+  _renderCleanButton = () => {
+    const { value } = this.state;
+
+    if (value)
+      return <div className='select-btn-clean'>Clean button</div>
+  }
+
   render() {
     const { loadOptions, loadOptionsAsync } = this.props;
 
@@ -78,6 +96,7 @@ class Select extends React.Component {
       <div>
         {this._renderSelectButton()}
         {this._renderRefreshButton()}
+        {this._renderCleanButton()}
       </div>
     )
   }
