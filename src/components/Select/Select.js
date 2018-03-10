@@ -46,6 +46,20 @@ class Select extends React.Component {
     }
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    let result = false
+
+    result = result || nextProps.value !== this.props.value
+    result = result || nextProps.options !== this.props.options
+
+    result = result || nextState.isLoading !== this.state.isLoading
+    result = result || nextState.options !== this.state.options
+    result = result || nextState.value !== this.state.value
+    result = result || nextState.isOptionsVisible !== this.state.isOptionsVisible
+
+    return result
+  }
+
   _handleSelectClick = () => {
     this.setState(prev => ({
       ...prev,

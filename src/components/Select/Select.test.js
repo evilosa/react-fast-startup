@@ -242,7 +242,20 @@ describe('Select', () => {
   })
 
   describe('function', () => {
-    xit('shouldComponentUpdate() should return false if state have the same value as prop')
+    it('shouldComponentUpdate() should return false if state and props have the same values', () => {
+      const value = 'value1'
+      const options = [{ id: 'id1', value: 'value1' }]
+      const component = mount(<Select value={value} options={options}/>)
+      const instance = component.instance()
+      const scuSpy = jest.spyOn(instance, 'shouldComponentUpdate')
+      const renderSpy = jest.spyOn(instance, 'render')
+
+      expect(scuSpy).not.toHaveBeenCalled()
+      component.setProps({ value, options })
+      expect(scuSpy).toHaveBeenCalled()
+      expect(renderSpy).not.toHaveBeenCalled()
+    })
+
     xit('loadOptions should update options in synchronous mode')
     xit('loadOptionsAsync should initiate receive new "options" prop after calling')
   })
