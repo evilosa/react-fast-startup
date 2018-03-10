@@ -14,8 +14,8 @@
     "build": "nwb build-react-component --copy-files",
     "clean": "nwb clean-module && nwb clean-demo",
     "demo": "nwb serve-react-demo",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "jest --coverage",
+    "test:clean": "jest",
     "test:watch": "jest --watch",
     "start": "start-storybook -p 4001 -c .storybook",
     "build-storybook": "build-storybook -c .storybook -o ./.storybook/dist",
@@ -88,7 +88,6 @@
       "<rootDir>/es/",
       "<rootDir>/lib/",
       "<rootDir>/umd/"
-    ],
-    "collectCoverage": true
+    ]
   }
 }
