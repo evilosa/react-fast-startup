@@ -7,4 +7,12 @@ describe('Select', () => {
     const component = shallow(<Select/>)
     expect(component).toMatchSnapshot()
   })
+
+  it('has correct default state', () => {
+    const component = shallow(<Select/>)
+    const state = component.state()
+    expect(state.isLoading).toBeFalsy()
+    expect(state.options).toEqual([])
+    expect(state.isOptionsVisible).toBeFalsy()
+  })
 })
