@@ -4,6 +4,7 @@ exports[`Select renders properly 1`] = `
 <div>
   <div
     className="select-btn-open"
+    onClick={[Function]}
   >
     Select button
   </div>

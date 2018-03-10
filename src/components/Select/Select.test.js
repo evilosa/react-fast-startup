@@ -17,7 +17,11 @@ describe('Select', () => {
   })
 
   describe('component select button', () => {
-    const component = shallow(<Select/>)
+    let component;
+
+    beforeEach(() => {
+      component = shallow(<Select/>)
+    })
 
     it('should be visible if state.isOptionsVisible=false', () => {
       expect(component.state().isOptionsVisible).toBeFalsy()
@@ -30,8 +34,23 @@ describe('Select', () => {
       expect(component.find('.select-btn-open').length).toEqual(0)
     })
 
-    xit('should call handleSelect when clicked')
-    xit('should change state.isOptionsVisible to true when clicked')
+    it('should call _handleSelect when clicked', () => {
+      const instance = component.instance();
+      const button = component.find('.select-btn-open')
+      const spy = jest.spyOn(instance, '_handleSelect')
+
+      expect(spy).not.toHaveBeenCalled()
+      button.simulate('click')
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('should change state.isOptionsVisible to true when clicked', () => {
+      const button = component.find('.select-btn-open')
+
+      expect(component.state().isOptionsVisible).toBeFalsy()
+      button.simulate('click')
+      expect(component.state().isOptionsVisible).toBeTruthy()
+    })
   })
 
   describe('component refresh button', () => {

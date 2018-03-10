@@ -11,10 +11,17 @@ class Select extends React.Component {
     }
   }
 
+  _handleSelect = () => {
+    this.setState(prev => ({
+      ...prev,
+      isOptionsVisible: true,
+    }))
+  }
+
   _renderSelect = () => {
     const { isOptionsVisible } = this.state;
     if (!isOptionsVisible)
-      return <div className='select-btn-open'>Select button</div>
+      return <div className='select-btn-open' onClick={() => this._handleSelect()}>Select button</div>
   }
 
   render() {
