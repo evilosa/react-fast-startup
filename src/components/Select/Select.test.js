@@ -186,9 +186,9 @@ describe('Select', () => {
   })
 
   describe('component clear button', () => {
-    xit('should be visible if value defined', () => {
+    it('should be visible if value defined', () => {
       const component = shallow(<Select value={'id1'}/>)
-      expect(component.find('select-btn-clear').length).toEqual(1)
+      expect(component.find('.select-btn-clean').length).toEqual(1)
     })
 
     xit('should be invisible if value undefined')
