@@ -31,15 +31,15 @@ describe('Select', () => {
     xit('should be invisible if loadOptions is undefined')
     xit('should be invisible if loadOptionsAsync is undefined')
     xit('should call handleRefresh when clicked')
-    xit('should call loadOptions if clicked and function is defined')
-    xit('should call loadOptionsAsync if clicked and function is defined')
+    xit('should clean options and call loadOptions if clicked and function is defined')
+    xit('should clean options and call loadOptionsAsync if clicked and function is defined')
   })
 
   describe('component clear button', () => {
     xit('should be visible if value defined')
     xit('should be invisible if value undefined')
     xit('should call handleClear when clicked')
-    xit('should call onValueChange when clicked')
+    xit('should clear value and call onValueChange when clicked')
   })
 
   describe('component input', () => {
@@ -53,5 +53,19 @@ describe('Select', () => {
     xit('should call handleSearch function when user input something')
     xit('should call loadOptions after user input if function defined')
     xit('should call loadOptionsAsync after user input if function defined')
+  })
+
+  describe('options list', () => {
+    xit('should be displayed if state.isOptions.Visible=true')
+    xit('should not be displayed if state.isOptions.Visible=false')
+    xit('should call handleSelect function after click on item ')
+    xit('should call onValueChange function after click on item')
+    xit('should receive max 50 items')
+  })
+
+  describe('function', () => {
+    xit('shouldComponentUpdate() should return false if state have the same value as prop')
+    xit('loadOptions should update options in synchronous mode')
+    xit('loadOptionsAsync should initiate receive new "options" prop after calling')
   })
 })
