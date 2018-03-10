@@ -44,6 +44,16 @@ describe('Table', () => {
       table.setProps({items: [ testItem ]});
       expect(table.state().items).toEqual([ testItem ]);
     });
+
+    it('componentWillReceiveProps() should be called', () => {
+      const table = mount(<Table items={items}/>);
+      const instance = table.instance();
+      const spy = jest.spyOn(instance, 'componentWillReceiveProps');
+
+      expect(spy).not.toHaveBeenCalled();
+      table.setProps({ pendingRequest: 1 });
+      expect(spy).toHaveBeenCalled();
+    });
   });
 
   describe('with empty items render', () => {
