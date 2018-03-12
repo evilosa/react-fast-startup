@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Select from './Select'
+import '../../utils'
 
 describe('Select', () => {
   const options = [
@@ -291,7 +292,7 @@ describe('Select', () => {
     })
 
     it('should call onValueChange function after click on item', () => {
-      const onValueChange = jest.fn();
+      const onValueChange = jest.fn()
       component = shallow(<Select options={options} onValueChange={onValueChange}/>)
       component.setState({ isOptionsVisible: true })
 
@@ -302,7 +303,13 @@ describe('Select', () => {
       expect(onValueChange).toHaveBeenCalledWith(options[0])
     })
 
-    xit('should receive max 50 items')
+    it('should receive max 50 items', () => {
+      const newOptions = []
+      ;(100).times((item) => { newOptions.push({id: item, value: 'testValue'})})
+      component.setProps({options: newOptions})
+
+      expect(component.find('.select-options-list-item').length).toEqual(50)
+    })
   })
 
   describe('function', () => {

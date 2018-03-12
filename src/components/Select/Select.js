@@ -33,7 +33,7 @@ class Select extends React.Component {
     {
       this.setState(prev => ({
         ...prev,
-        options: nextProps.options,
+        options: nextProps.options.slice(0, 50),
       }))
     }
 
@@ -123,7 +123,7 @@ class Select extends React.Component {
     const { isOptionsVisible } = this.state
 
     if (isOptionsVisible) {
-      const { options } = this.props;
+      const { options } = this.state;
       return (
         <div className='select-options-list'>
           {options.map((item, key) => this._renderOptionsListItem(key, item))}
