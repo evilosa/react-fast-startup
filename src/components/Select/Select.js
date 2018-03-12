@@ -169,10 +169,11 @@ class Select extends React.Component {
   }
 
   _renderSearchInput = () => {
+    const { isOptionsVisible } = this.state;
     const { loadOptions, loadOptionsAsync } = this.props
 
-    if (loadOptions || loadOptionsAsync)
-      return <input className='select-search-input'/>
+    if (isOptionsVisible && (loadOptions || loadOptionsAsync))
+        return <input className='select-search-input'/>
   }
 
   render() {

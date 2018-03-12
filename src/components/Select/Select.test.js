@@ -224,23 +224,32 @@ describe('Select', () => {
   })
 
   describe('search input', () => {
-    it('should be visible if loadOptions function is defined', () => {
+    it('should be visible if loadOptions function is defined and state.isOptionsVisible=true', () => {
       const loadOptions = jest.fn()
+      loadOptions.mockReturnValue([])
       const component = shallow(<Select loadOptions={loadOptions}/>)
-
+      component.setState({ isOptionsVisible: true })
       expect(component.find('.select-search-input').length).toEqual(1)
     })
 
-    it('should be visible if loadOptionsAsync function is defined', () => {
+    it('should be visible if loadOptionsAsync function is defined and state.isOptionsVisible=true', () => {
       const loadOptions = jest.fn()
       const component = shallow(<Select loadOptionsAsync={loadOptions}/>)
-
+      component.setState({ isOptionsVisible: true })
       expect(component.find('.select-search-input').length).toEqual(1)
     })
 
-    xit('should be invisible if options is defined')
-    xit('should be visible if state.isOptionsVisible=true')
-    xit('should be invisible if state.isOptionsVisible=false')
+    it('should be invisible if loadOptions and loadOptionsAsync is undefined', () => {
+      const component = shallow(<Select options={options}/>)
+      expect(component.find('.select-search-input').length).toEqual(0)
+    })
+
+    it('should be invisible if state.isOptionsVisible=false', () => {
+      const loadOptions = jest.fn()
+      const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
+      expect(component.find('.select-search-input').length).toEqual(0)
+    })
+
     xit('should be disabled if state.isLoading=true')
     xit('should be enabled if state.isLoading=false')
     xit('should call handleSearch function when user input something')
