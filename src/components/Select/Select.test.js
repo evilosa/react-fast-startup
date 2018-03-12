@@ -299,6 +299,7 @@ describe('Select', () => {
       expect(item.length).toEqual(1)
       item.prop('onClick')()
       expect(onValueChange).toHaveBeenCalled()
+      expect(onValueChange).toHaveBeenCalledWith(options[0])
     })
 
     xit('should receive max 50 items')

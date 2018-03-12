@@ -132,8 +132,9 @@ class Select extends React.Component {
     }
   }
 
-  _handleOptionsListItemClick = () => {
-
+  _handleOptionsListItemClick = (item) => {
+    const { onValueChange } = this.props;
+    onValueChange && onValueChange(item);
   }
 
   _renderOptionsListItem = (key, item) => {
