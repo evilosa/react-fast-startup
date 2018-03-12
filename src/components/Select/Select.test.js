@@ -343,6 +343,15 @@ describe('Select', () => {
       expect(component.state().options.length).toEqual(2)
     })
 
-    xit('loadOptionsAsync should initiate receive new "options" prop after calling')
+    it('loadOptionsAsync should initiate receive new "options" prop after calling', () => {
+      const loadOptionsAsync = jest.fn()
+      const component = mount(<Select loadOptionsAsync={loadOptionsAsync} />)
+
+      expect(loadOptionsAsync).toHaveBeenCalled()
+      loadOptionsAsync.mockReset();
+      const refresh = component.find('.select-btn-refresh')
+      refresh.simulate('click')
+      expect(loadOptionsAsync).toHaveBeenCalled()
+    })
   })
 })

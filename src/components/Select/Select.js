@@ -29,10 +29,12 @@ class Select extends React.Component {
   }
 
   componentDidMount() {
-    const { options } = this.state;
+    const { options } = this.state
+    const { loadOptionsAsync } = this.props
 
     if (options.length === 0) {
       this._loadOptions()
+      loadOptionsAsync && loadOptionsAsync()
     }
   }
 
