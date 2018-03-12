@@ -258,18 +258,27 @@ describe('Select', () => {
   })
 
   describe('options list', () => {
-    it('should be displayed if state.isOptionsVisible=true', () => {
-      const component = shallow(<Select options={options}/>)
+    let component;
+
+    beforeEach(() => {
+      component = shallow(<Select options={options}/>)
       component.setState({ isOptionsVisible: true })
+    })
+
+    it('should be displayed if state.isOptionsVisible=true', () => {
       expect(component.find('.select-options-list').length).toEqual(1)
     })
 
     it('should not be displayed if state.isOptions.Visible=false', () => {
-      const component = shallow(<Select options={options}/>)
+      component.setState({ isOptionsVisible: false })
       expect(component.find('.select-options-list').length).toEqual(0)
     })
 
-    xit('should call handleSelect function after click on item ')
+    it('should contain options items in list', () => {
+      expect(component.find('.select-options-list-item').length).toEqual(2)
+    })
+
+    xit('should call handleSelect function after click on item')
     xit('should call onValueChange function after click on item')
     xit('should receive max 50 items')
   })

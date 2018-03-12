@@ -122,8 +122,25 @@ class Select extends React.Component {
   _renderOptionsList = () => {
     const { isOptionsVisible } = this.state
 
-    if (isOptionsVisible)
-      return <div className='select-options-list'></div>
+    if (isOptionsVisible) {
+      const { options } = this.props;
+      return (
+        <div className='select-options-list'>
+          {options.map((item, key) => this._renderOptionsListItem(key, item))}
+        </div>
+      )
+    }
+  }
+
+  _renderOptionsListItem = (key, item) => {
+    return (
+      <div
+        className='select-options-list-item'
+        key={key}
+      >
+        {item}
+      </div>
+    )
   }
 
   render() {
