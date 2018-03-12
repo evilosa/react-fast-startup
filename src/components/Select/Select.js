@@ -28,6 +28,14 @@ class Select extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const { options } = this.state;
+
+    if (options.length === 0) {
+      this._loadOptions()
+    }
+  }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.options !== this.props.options)
     {
@@ -73,6 +81,15 @@ class Select extends React.Component {
       return <div className='select-btn-open' onClick={() => this._handleSelectClick()}>Select button</div>
   }
 
+  _loadOptions = () => {
+    const { loadOptions } = this.props;
+
+    loadOptions && this.setState(prev => ({
+      ...prev,
+      options: loadOptions(),
+    }))
+  }
+
   _handleRefreshClick = () => {
     this.setState(
       prev => ({
@@ -80,8 +97,8 @@ class Select extends React.Component {
         options: [],
       }),
       () => {
-        const { loadOptions, loadOptionsAsync } = this.props
-        loadOptions && loadOptions()
+        const { loadOptionsAsync } = this.props
+        this._loadOptions()
         loadOptionsAsync && loadOptionsAsync()
       })
   }

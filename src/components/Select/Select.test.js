@@ -129,7 +129,7 @@ describe('Select', () => {
 
   describe('component refresh button', () => {
     it('should be visible if loadOptions function is defined', () => {
-      const loadOptionsFn = jest.fn();
+      const loadOptionsFn = jest.fn()
       const component = shallow(<Select loadOptions={loadOptionsFn}/>)
 
       expect(component.find('.select-btn-refresh').length).toEqual(1)
@@ -161,6 +161,7 @@ describe('Select', () => {
 
     it('should clean options and call loadOptions if clicked and function is defined', () => {
       const loadOptionsFn = jest.fn()
+      loadOptionsFn.mockReturnValue([])
       const component = shallow(<Select loadOptions={loadOptionsFn} options={[{id: 'testId'}]}/>)
       const button = component.find('.select-btn-refresh')
 
@@ -327,7 +328,19 @@ describe('Select', () => {
       expect(renderSpy).not.toHaveBeenCalled()
     })
 
-    xit('loadOptions should update options in synchronous mode')
+    it('loadOptions should update options in synchronous mode', () => {
+      const firstOptions = [{ id: 'id1', value: 'value1' }]
+      const secondOptions = [{ id: 'id2', value: 'value2' }, { id: 'id3', value: 'value3' }]
+      const loadOptions = jest.fn();
+      loadOptions
+        .mockReturnValueOnce(firstOptions)
+        .mockReturnValue(secondOptions)
+
+      const component = shallow(<Select loadOptions={loadOptions} />)
+      expect(component.state().options.length).toEqual(1)
+      // const refresh = component
+    })
+
     xit('loadOptionsAsync should initiate receive new "options" prop after calling')
   })
 })
