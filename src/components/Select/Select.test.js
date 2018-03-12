@@ -338,7 +338,9 @@ describe('Select', () => {
 
       const component = shallow(<Select loadOptions={loadOptions} />)
       expect(component.state().options.length).toEqual(1)
-      // const refresh = component
+      const refresh = component.find('.select-btn-refresh')
+      refresh.simulate('click')
+      expect(component.state().options.length).toEqual(2)
     })
 
     xit('loadOptionsAsync should initiate receive new "options" prop after calling')
