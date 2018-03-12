@@ -278,13 +278,15 @@ describe('Select', () => {
       expect(component.find('.select-options-list-item').length).toEqual(2)
     })
 
-    it('should call _handleSelect function after click on item', () => {
+    it('should call _handleOptionsListItemClick function after item click', () => {
       const instance = component.instance();
-      const spy = jest.spyOn(instance, '_handleSelect');
+      const spy = jest.spyOn(instance, '_handleOptionsListItemClick');
 
-      const item = component.find('select-options-list-item').first();
-      item.simulate('click');
-      expect(spy).toHaveBeenCalled()
+      const item = component.find('.select-options-list-item').first();
+      expect(item.length).toEqual(1);
+      item.prop('onClick')();
+      expect(spy).toHaveBeenCalled();
+
       spy.mockRestore();
     })
 

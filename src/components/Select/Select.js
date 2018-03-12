@@ -132,11 +132,16 @@ class Select extends React.Component {
     }
   }
 
+  _handleOptionsListItemClick = () => {
+
+  }
+
   _renderOptionsListItem = (key, item) => {
     return (
       <div
         className='select-options-list-item'
         key={key}
+        onClick={() => this._handleOptionsListItemClick(item)}
       >
         {item}
       </div>
