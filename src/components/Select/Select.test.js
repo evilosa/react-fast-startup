@@ -250,8 +250,20 @@ describe('Select', () => {
       expect(component.find('.select-search-input').length).toEqual(0)
     })
 
-    xit('should be disabled if state.isLoading=true')
-    xit('should be enabled if state.isLoading=false')
+    it('should be disabled if state.isLoading=true', () => {
+      const loadOptions = jest.fn()
+      const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
+      component.setState(prev => ({ ...prev, isOptionsVisible: true, isLoading: true }))
+      expect(component.find('.select-search-input').props().enabled).toBeFalsy()
+    })
+
+    it('should be enabled if state.isLoading=false', () => {
+      const loadOptions = jest.fn()
+      const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
+      component.setState(prev => ({ ...prev, isOptionsVisible: true, isLoading: false }))
+      expect(component.find('.select-search-input').props().enabled).toBeTruthy()
+    })
+
     xit('should call handleSearch function when user input something')
     xit('should call loadOptions after user input if function defined')
     xit('should call loadOptionsAsync after user input if function defined')
