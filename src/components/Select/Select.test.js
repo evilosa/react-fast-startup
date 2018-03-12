@@ -278,7 +278,16 @@ describe('Select', () => {
       expect(component.find('.select-options-list-item').length).toEqual(2)
     })
 
-    xit('should call handleSelect function after click on item')
+    it('should call _handleSelect function after click on item', () => {
+      const instance = component.instance();
+      const spy = jest.spyOn(instance, '_handleSelect');
+
+      const item = component.find('select-options-list-item').first();
+      item.simulate('click');
+      expect(spy).toHaveBeenCalled()
+      spy.mockRestore();
+    })
+
     xit('should call onValueChange function after click on item')
     xit('should receive max 50 items')
   })
