@@ -30,11 +30,9 @@ class Select extends React.Component {
 
   componentDidMount() {
     const { options } = this.state
-    const { loadOptionsAsync } = this.props
 
     if (options.length === 0) {
       this._loadOptions()
-      loadOptionsAsync && loadOptionsAsync()
     }
   }
 
@@ -84,12 +82,15 @@ class Select extends React.Component {
   }
 
   _loadOptions = () => {
-    const { loadOptions } = this.props;
+    const { value } = this.state
+    const { loadOptions, loadOptionsAsync } = this.props
 
     loadOptions && this.setState(prev => ({
       ...prev,
-      options: loadOptions(),
+      options: loadOptions(value),
     }))
+
+    loadOptionsAsync && loadOptionsAsync(value)
   }
 
   _handleRefreshClick = () => {
@@ -169,7 +170,12 @@ class Select extends React.Component {
   }
 
   _handleSearch = value => {
-
+    this.setState(
+      prev => ({
+        ...prev,
+        value,
+      }),
+      () => this._loadOptions())
   }
 
   _renderSearchInput = () => {

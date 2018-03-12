@@ -266,6 +266,7 @@ describe('Select', () => {
 
     it('should call _handleSearch with right arguments when user input something', () => {
       const loadOptions = jest.fn()
+      loadOptions.mockReturnValue([])
       const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
       const instance = component.instance()
       const spy = jest.spyOn(instance, '_handleSearch')
@@ -278,8 +279,27 @@ describe('Select', () => {
       spy.mockRestore()
     })
 
-    xit('should call loadOptions with user value and function defined after onChange')
-    xit('should call loadOptionsAsync after user input if function defined')
+    it('should call loadOptions with user value and function defined after onChange', () => {
+      const loadOptions = jest.fn()
+      loadOptions.mockReturnValue([])
+      const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
+
+      component.setState(prev => ({ ...prev, isOptionsVisible: true, isLoading: false }))
+      component.find('.select-search-input').prop('onChange')({ currentTarget: { value: 'NewValue'}})
+      expect(loadOptions).toHaveBeenCalled()
+      expect(loadOptions).toHaveBeenCalledWith('NewValue')
+    })
+
+    it('should call loadOptionsAsync after user input if function defined', () => {
+      const loadOptions = jest.fn()
+      loadOptions.mockReturnValue([])
+      const component = shallow(<Select options={options} loadOptionsAsync={loadOptions}/>)
+
+      component.setState(prev => ({ ...prev, isOptionsVisible: true, isLoading: false }))
+      component.find('.select-search-input').prop('onChange')({ currentTarget: { value: 'NewValue'}})
+      expect(loadOptions).toHaveBeenCalled()
+      expect(loadOptions).toHaveBeenCalledWith('NewValue')
+    })
   })
 
   describe('value text', () => {
