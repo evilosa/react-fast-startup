@@ -264,8 +264,21 @@ describe('Select', () => {
       expect(component.find('.select-search-input').props().enabled).toBeTruthy()
     })
 
-    xit('should call handleSearch function when user input something')
-    xit('should call loadOptions after user input if function defined')
+    it('should call _handleSearch with right arguments when user input something', () => {
+      const loadOptions = jest.fn()
+      const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
+      const instance = component.instance()
+      const spy = jest.spyOn(instance, '_handleSearch')
+
+      component.setState(prev => ({ ...prev, isOptionsVisible: true, isLoading: false }))
+      component.find('.select-search-input').prop('onChange')({ currentTarget: { value: 'NewValue'}})
+      expect(spy).toHaveBeenCalled()
+      expect(spy).toHaveBeenCalledWith('NewValue')
+
+      spy.mockRestore()
+    })
+
+    xit('should call loadOptions with user value and function defined after onChange')
     xit('should call loadOptionsAsync after user input if function defined')
   })
 
