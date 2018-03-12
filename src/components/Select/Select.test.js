@@ -224,8 +224,20 @@ describe('Select', () => {
   })
 
   describe('search input', () => {
-    xit('should be visible if loadOptions function is defined')
-    xit('should be visible if loadOptionsAsync function is defined')
+    it('should be visible if loadOptions function is defined', () => {
+      const loadOptions = jest.fn()
+      const component = shallow(<Select loadOptions={loadOptions}/>)
+
+      expect(component.find('.select-search-input').length).toEqual(1)
+    })
+
+    it('should be visible if loadOptionsAsync function is defined', () => {
+      const loadOptions = jest.fn()
+      const component = shallow(<Select loadOptionsAsync={loadOptions}/>)
+
+      expect(component.find('.select-search-input').length).toEqual(1)
+    })
+
     xit('should be invisible if options is defined')
     xit('should be visible if state.isOptionsVisible=true')
     xit('should be invisible if state.isOptionsVisible=false')

@@ -168,6 +168,13 @@ class Select extends React.Component {
     )
   }
 
+  _renderSearchInput = () => {
+    const { loadOptions, loadOptionsAsync } = this.props
+
+    if (loadOptions || loadOptionsAsync)
+      return <input className='select-search-input'/>
+  }
+
   render() {
     const { loadOptions, loadOptionsAsync } = this.props
 
@@ -181,6 +188,7 @@ class Select extends React.Component {
         {this._renderRefreshButton()}
         {this._renderCleanButton()}
         {this._renderOptionsList()}
+        {this._renderSearchInput()}
       </div>
     )
   }
