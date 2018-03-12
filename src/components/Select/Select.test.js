@@ -279,18 +279,28 @@ describe('Select', () => {
     })
 
     it('should call _handleOptionsListItemClick function after item click', () => {
-      const instance = component.instance();
-      const spy = jest.spyOn(instance, '_handleOptionsListItemClick');
+      const instance = component.instance()
+      const spy = jest.spyOn(instance, '_handleOptionsListItemClick')
 
-      const item = component.find('.select-options-list-item').first();
-      expect(item.length).toEqual(1);
-      item.prop('onClick')();
-      expect(spy).toHaveBeenCalled();
+      const item = component.find('.select-options-list-item').first()
+      expect(item.length).toEqual(1)
+      item.prop('onClick')()
+      expect(spy).toHaveBeenCalled()
 
-      spy.mockRestore();
+      spy.mockRestore()
     })
 
-    xit('should call onValueChange function after click on item')
+    it('should call onValueChange function after click on item', () => {
+      const onValueChange = jest.fn();
+      component = shallow(<Select options={options} onValueChange={onValueChange}/>)
+      component.setState({ isOptionsVisible: true })
+
+      const item = component.find('.select-options-list-item').first()
+      expect(item.length).toEqual(1)
+      item.prop('onClick')()
+      expect(onValueChange).toHaveBeenCalled()
+    })
+
     xit('should receive max 50 items')
   })
 
