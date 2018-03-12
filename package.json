@@ -1,6 +1,6 @@
 {
   "name": "react-fast-startup",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "react-fast-startup React component",
   "main": "lib/index.js",
   "module": "es/index.js",
