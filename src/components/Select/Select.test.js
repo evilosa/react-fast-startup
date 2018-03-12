@@ -57,7 +57,7 @@ describe('Select', () => {
 
     it('options set to state.options in constructor', () => {
       const component = shallow(<Select options={options}/>)
-      expect(component.state().options).toBe(options)
+      expect(component.state().options).toEqual(options)
     })
 
     it('new options should update state.options', () => {

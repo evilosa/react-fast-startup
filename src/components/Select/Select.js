@@ -22,7 +22,7 @@ class Select extends React.Component {
 
     this.state = {
       isLoading: false,
-      options,
+      options: options.slice(0, 50),
       value,
       isOptionsVisible: false
     }
