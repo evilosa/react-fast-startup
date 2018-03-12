@@ -119,6 +119,13 @@ class Select extends React.Component {
       return <div className='select-value-text'>{value}</div>
   }
 
+  _renderOptionsList = () => {
+    const { isOptionsVisible } = this.state
+
+    if (isOptionsVisible)
+      return <div className='select-options-list'></div>
+  }
+
   render() {
     const { loadOptions, loadOptionsAsync } = this.props
 
@@ -131,6 +138,7 @@ class Select extends React.Component {
         {this._renderSelectButton()}
         {this._renderRefreshButton()}
         {this._renderCleanButton()}
+        {this._renderOptionsList()}
       </div>
     )
   }

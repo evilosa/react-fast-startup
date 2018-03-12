@@ -3,6 +3,11 @@ import { shallow, mount } from 'enzyme'
 import Select from './Select'
 
 describe('Select', () => {
+  const options = [
+    { id: 'id1', value: 'value1'},
+    { id: 'id2', value: 'value2'},
+  ]
+
   it('renders properly', () => {
     const component = shallow(<Select/>)
     expect(component).toMatchSnapshot()
@@ -47,10 +52,6 @@ describe('Select', () => {
   })
 
   describe('prop', () => {
-    const options = [
-      { id: 'id1', value: 'value1'},
-      { id: 'id2', value: 'value2'},
-    ]
     const value = 'newTestValue'
 
     it('options set to state.options in constructor', () => {
@@ -257,8 +258,17 @@ describe('Select', () => {
   })
 
   describe('options list', () => {
-    xit('should be displayed if state.isOptions.Visible=true')
-    xit('should not be displayed if state.isOptions.Visible=false')
+    it('should be displayed if state.isOptionsVisible=true', () => {
+      const component = shallow(<Select options={options}/>)
+      component.setState({ isOptionsVisible: true })
+      expect(component.find('.select-options-list').length).toEqual(1)
+    })
+
+    it('should not be displayed if state.isOptions.Visible=false', () => {
+      const component = shallow(<Select options={options}/>)
+      expect(component.find('.select-options-list').length).toEqual(0)
+    })
+
     xit('should call handleSelect function after click on item ')
     xit('should call onValueChange function after click on item')
     xit('should receive max 50 items')
