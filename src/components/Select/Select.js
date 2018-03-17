@@ -135,13 +135,13 @@ class Select extends React.Component {
   }
 
   _renderValueText = () => {
-    const { isOptionsVisible, value } = this.state
+    const { isOptionsVisible, value: { title } } = this.state
 
     if (!isOptionsVisible)
       return <div
         className='select-value-text'
         style={style.value}
-      >{value}</div>
+      >{title}</div>
   }
 
   _renderOptionsList = () => {
@@ -157,14 +157,13 @@ class Select extends React.Component {
     }
   }
 
-  _handleOptionsListItemClick = (item) => {
+  _handleOptionsListItemClick = (value) => {
     const { onValueChange } = this.props
-    const { id } = item
-    onValueChange && onValueChange(item)
+    onValueChange && onValueChange(value)
 
     this.setState(prev => ({
       ...prev,
-      value: id,
+      value,
       isOptionsVisible: false,
     }))
   }

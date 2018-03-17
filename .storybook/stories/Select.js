@@ -9,7 +9,9 @@ const options = [
   { id: '2', title: 'Turkey' },
   { id: '3', title: 'Italy' },
   { id: '4', title: 'USA' }
-];
+]
+
+const value = options[0]
 
 storiesOf('Select', module)
   .add('default',
@@ -25,6 +27,7 @@ storiesOf('Select', module)
         <Select
           title='Countries'
           options={options}
+          value={value}
         />
       </div>
     )));

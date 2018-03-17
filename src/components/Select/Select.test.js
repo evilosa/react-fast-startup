@@ -377,7 +377,7 @@ describe('Select', () => {
       const item = component.find('.select-options-list-item').first()
       expect(item.length).toEqual(1)
       item.prop('onClick')()
-      expect(component.state().value).toEqual('id1')
+      expect(component.state().value).toEqual(options[0])
       expect(component.state().isOptionsVisible).toBeFalsy()
     })
 
