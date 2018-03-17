@@ -337,7 +337,7 @@ describe('Select', () => {
       expect(component.find('.select-options-list').length).toEqual(1)
     })
 
-    it('should not be displayed if state.isOptions.Visible=false', () => {
+    it('should not be displayed if state.isOptionsVisible=false', () => {
       component.setState({ isOptionsVisible: false })
       expect(component.find('.select-options-list').length).toEqual(0)
     })
@@ -368,6 +368,17 @@ describe('Select', () => {
       item.prop('onClick')()
       expect(onValueChange).toHaveBeenCalled()
       expect(onValueChange).toHaveBeenCalledWith(options[0])
+    })
+
+    it('should set value and state.isOptionsVisible to false after click on options item', () => {
+      component = shallow(<Select options={options}/>)
+      component.setState({ isOptionsVisible: true })
+
+      const item = component.find('.select-options-list-item').first()
+      expect(item.length).toEqual(1)
+      item.prop('onClick')()
+      expect(component.state().value).toEqual('id1')
+      expect(component.state().isOptionsVisible).toBeFalsy()
     })
 
     it('should receive max 50 items', () => {

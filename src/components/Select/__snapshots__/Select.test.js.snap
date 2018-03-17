@@ -1,12 +1,50 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Select renders properly 1`] = `
-<div>
+<div
+  data-radium={true}
+  style={
+    Object {
+      "borderColor": "#3b88ff",
+      "borderStyle": "solid",
+      "borderWidth": "1px",
+      "display": "flex",
+      "flex": "1 0",
+    }
+  }
+>
+  <div
+    data-radium={true}
+    key=".0"
+    style={
+      Object {
+        "alignItems": "center",
+        "borderColor": "#ff6f13",
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "display": "flex",
+        "minWidth": "150px",
+        "padding": "5px",
+      }
+    }
+  />
   <div
     className="select-value-text"
+    data-radium={true}
+    key=".1"
+    style={
+      Object {
+        "borderColor": "#5bff42",
+        "borderStyle": "solid",
+        "borderWidth": "1px",
+        "flex": "1 0",
+        "padding": "5px",
+      }
+    }
   />
   <div
     className="select-btn-open"
+    key=".2"
     onClick={[Function]}
   >
     Select button
@@ -17,6 +55,17 @@ exports[`Select renders properly 1`] = `
 exports[`Select value text should display provided value 1`] = `
 <div
   className="select-value-text"
+  data-radium={true}
+  key=".1"
+  style={
+    Object {
+      "borderColor": "#5bff42",
+      "borderStyle": "solid",
+      "borderWidth": "1px",
+      "flex": "1 0",
+      "padding": "5px",
+    }
+  }
 >
   testValue
 </div>

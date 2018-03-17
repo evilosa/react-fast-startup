@@ -1,5 +1,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
+import Radium from 'radium'
+import style from './style'
 
 class Select extends React.Component {
 
@@ -136,7 +138,10 @@ class Select extends React.Component {
     const { isOptionsVisible, value } = this.state
 
     if (!isOptionsVisible)
-      return <div className='select-value-text'>{value}</div>
+      return <div
+        className='select-value-text'
+        style={style.value}
+      >{value}</div>
   }
 
   _renderOptionsList = () => {
@@ -153,18 +158,26 @@ class Select extends React.Component {
   }
 
   _handleOptionsListItemClick = (item) => {
-    const { onValueChange } = this.props;
-    onValueChange && onValueChange(item);
+    const { onValueChange } = this.props
+    const { id } = item
+    onValueChange && onValueChange(item)
+
+    this.setState(prev => ({
+      ...prev,
+      value: id,
+      isOptionsVisible: false,
+    }))
   }
 
   _renderOptionsListItem = (key, item) => {
+    const { title } = item;
     return (
       <div
         className='select-options-list-item'
         key={key}
         onClick={() => this._handleOptionsListItemClick(item)}
       >
-        {item}
+        {title}
       </div>
     )
   }
@@ -187,13 +200,16 @@ class Select extends React.Component {
   }
 
   render() {
-    const { loadOptions, loadOptionsAsync } = this.props
+    const { loadOptions, loadOptionsAsync, title } = this.props
 
     if (loadOptions && loadOptionsAsync)
       throw new Error('Select component should have only one of functions "loadOptions" or "loadOptionsAsync"')
 
     return (
-      <div>
+      <div style={style.root}>
+        <div style={style.title}>
+          {title}
+        </div>
         {this._renderValueText()}
         {this._renderSelectButton()}
         {this._renderRefreshButton()}
@@ -205,4 +221,4 @@ class Select extends React.Component {
   }
 }
 
-export default Select
+export default Radium(Select)
