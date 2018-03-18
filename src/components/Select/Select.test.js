@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Select from './Select'
 import '../../utils'
+import { createSelectStyle } from './style'
 
 describe('Select', () => {
   const options = [
@@ -14,6 +15,10 @@ describe('Select', () => {
   it('renders properly', () => {
     const component = shallow(<Select/>)
     expect(component).toMatchSnapshot()
+  })
+
+  it('should have correct style', () => {
+    expect(createSelectStyle()).toMatchSnapshot();
   })
 
   describe('without props', () => {

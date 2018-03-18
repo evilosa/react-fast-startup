@@ -99,6 +99,46 @@ exports[`Select renders properly 1`] = `
 </div>
 `;
 
+exports[`Select should have correct style 1`] = `
+Object {
+  "optionsList": Object {
+    "backgroundColor": "#f9f9f9",
+    "boxShadow": "0px 8px 16px 0px rgba(0,0,0,0.2)",
+    "display": "block",
+    "maxHeight": "60px",
+    "minWidth": "160px",
+    "overflowX": "hidden",
+    "overflowY": "auto",
+    "padding": "12px 16px",
+    "position": "absolute",
+    "zIndex": "1",
+  },
+  "root": Object {
+    "borderColor": "#3b88ff",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "display": "flex",
+    "flex": "1 0",
+  },
+  "title": Object {
+    "alignItems": "center",
+    "borderColor": "#ff6f13",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "display": "flex",
+    "minWidth": "150px",
+    "padding": "5px",
+  },
+  "value": Object {
+    "borderColor": "#5bff42",
+    "borderStyle": "solid",
+    "borderWidth": "1px",
+    "flex": "1 0",
+    "padding": "5px",
+  },
+}
+`;
+
 exports[`Select value text should display provided value 1`] = `
 <div
   className="select-value-text"
