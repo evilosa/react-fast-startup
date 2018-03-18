@@ -22,7 +22,7 @@ storiesOf('Select', module)
       text: 'Default select',
     })(() => (
       <div
-        style={{height: '400px', width: '100%'}}
+        style={{height: '40px', width: '100%'}}
       >
         <Select
           title='Countries'

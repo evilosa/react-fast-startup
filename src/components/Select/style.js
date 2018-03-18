@@ -16,7 +16,6 @@ const defaultBorder = {
 export const createSelectStyle = (colors = SelectColors) => ({
   root: {
     display: 'flex',
-    // flexDirection: 'column',
     flex: '1 0',
     ...defaultBorder,
     borderColor: colors.rootBorder,
@@ -36,7 +35,21 @@ export const createSelectStyle = (colors = SelectColors) => ({
     padding: '5px',
     ...defaultBorder,
     borderColor: colors.valueBorder,
-  }
+  },
+
+  optionsList: {
+    display: 'block',
+    position: 'absolute',
+    backgroundColor: '#f9f9f9',
+    maxHeight: '60px',
+    minWidth: '160px',
+    boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
+    marginTop: '30px',
+    padding: '12px 16px',
+    zIndex: '1',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+  },
 });
 
 export const SelectStyle = createSelectStyle();

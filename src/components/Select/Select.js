@@ -150,8 +150,14 @@ class Select extends React.Component {
     if (isOptionsVisible) {
       const { options } = this.state;
       return (
-        <div className='select-options-list'>
-          {options && options.map((item, key) => this._renderOptionsListItem(key, item))}
+        <div
+          className='select-options-list'
+        >
+          <div
+            style={style.optionsList}
+          >
+            {options && options.map((item, key) => this._renderOptionsListItem(key, item))}
+          </div>
         </div>
       )
     }
@@ -210,11 +216,11 @@ class Select extends React.Component {
           {title}
         </div>
         {this._renderValueText()}
+        {this._renderSearchInput()}
+        {this._renderOptionsList()}
         {this._renderSelectButton()}
         {this._renderRefreshButton()}
         {this._renderCleanButton()}
-        {this._renderOptionsList()}
-        {this._renderSearchInput()}
       </div>
     )
   }

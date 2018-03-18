@@ -44,7 +44,7 @@ exports[`Select renders properly 1`] = `
   />
   <Button
     className="select-btn-open"
-    key=".2"
+    key=".4"
     onClick={[Function]}
     style={
       Object {
