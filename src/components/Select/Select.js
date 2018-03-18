@@ -8,12 +8,13 @@ class Select extends React.Component {
   static propTypes = {
     title: PropTypes.string,
     options: PropTypes.arrayOf(PropTypes.object),
-    value: PropTypes.string,
+    value: PropTypes.object,
+    loadOptionsAsync: PropTypes.func,
   };
 
   static defaultProps = {
     title: '',
-    value: '',
+    value: { id: undefined, title: undefined },
     options: [],
   };
 
@@ -102,9 +103,7 @@ class Select extends React.Component {
         options: [],
       }),
       () => {
-        const { loadOptionsAsync } = this.props
         this._loadOptions()
-        loadOptionsAsync && loadOptionsAsync()
       })
   }
 
@@ -119,7 +118,7 @@ class Select extends React.Component {
     this.setState(
       prev => ({
         ...prev,
-        value: '',
+        value: { id: undefined, title: undefined },
       }),
       () => {
         const { onValueChanged } = this.props
@@ -130,7 +129,7 @@ class Select extends React.Component {
   _renderCleanButton = () => {
     const { value } = this.state
 
-    if (value)
+    if (value.title)
       return <div className='select-btn-clean' onClick={() => this._handleCleanClick()}>Clean button</div>
   }
 
@@ -151,7 +150,7 @@ class Select extends React.Component {
       const { options } = this.state;
       return (
         <div className='select-options-list'>
-          {options.map((item, key) => this._renderOptionsListItem(key, item))}
+          {options && options.map((item, key) => this._renderOptionsListItem(key, item))}
         </div>
       )
     }

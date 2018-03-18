@@ -7,6 +7,7 @@ function loadStories() {
   require('./stories/Table')
   require('./stories/Page')
   require('./stories/Select')
+  require('./stories/SelectAsync')
   require('./stories/TableWithAddButton')
 }
 

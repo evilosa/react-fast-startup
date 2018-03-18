@@ -66,5 +66,7 @@ exports[`Select value text should display provided value 1`] = `
       "padding": "5px",
     }
   }
-/>
+>
+  SomeValue
+</div>
 `;

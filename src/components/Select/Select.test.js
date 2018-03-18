@@ -5,9 +5,11 @@ import '../../utils'
 
 describe('Select', () => {
   const options = [
-    { id: 'id1', value: 'value1'},
-    { id: 'id2', value: 'value2'},
+    { id: 'id1', title: 'value1'},
+    { id: 'id2', title: 'value2'},
   ]
+
+  const value = {id: '0', title: 'SomeValue'};
 
   it('renders properly', () => {
     const component = shallow(<Select/>)
@@ -22,8 +24,8 @@ describe('Select', () => {
       expect(props.title).toEqual('')
     })
 
-    it('have default empty prop "value"', () => {
-      expect(props.value).toEqual('')
+    it('have default value for prop "value"', () => {
+      expect(props.value).toEqual({ id: undefined, value: undefined })
     })
 
     it('have default prop "options" equal []', () => {
@@ -40,7 +42,7 @@ describe('Select', () => {
     })
 
     it('for value is empty', () => {
-      expect(state.value).toEqual('')
+      expect(state.value).toEqual({ id: undefined, value: undefined })
     })
 
     it('for options equal []', () => {
@@ -53,8 +55,6 @@ describe('Select', () => {
   })
 
   describe('prop', () => {
-    const value = 'newTestValue'
-
     it('options set to state.options in constructor', () => {
       const component = shallow(<Select options={options}/>)
       expect(component.state().options).toEqual(options)
@@ -62,7 +62,7 @@ describe('Select', () => {
 
     it('new options should update state.options', () => {
       const component = mount(<Select options={options}/>)
-      const newOptions = [{ id: 'id3', value: 'value3' }]
+      const newOptions = [{ id: 'id3', title: 'value3' }]
 
       component.setProps({ options: newOptions })
       expect(component.state().options).toEqual(newOptions)
@@ -74,7 +74,7 @@ describe('Select', () => {
     })
 
     it('new value should update state.value', () => {
-      const component = mount(<Select value='initValue'/>)
+      const component = mount(<Select value={{ id: 0, title: 'defValue'}}/>)
       component.setProps({ value: value })
       expect(component.state().value).toEqual(value)
     })
@@ -190,7 +190,7 @@ describe('Select', () => {
 
   describe('component clear button', () => {
     it('should be visible if value defined', () => {
-      const component = shallow(<Select value={'id1'}/>)
+      const component = shallow(<Select value={value}/>)
       expect(component.find('.select-btn-clean').length).toEqual(1)
     })
 
@@ -200,7 +200,7 @@ describe('Select', () => {
     })
 
     it('should call handleClear when clicked', () => {
-      const component = shallow(<Select value={'testValue'}/>)
+      const component = shallow(<Select value={value}/>)
       const instance = component.instance();
       const button = component.find('.select-btn-clean')
       const spy = jest.spyOn(instance, '_handleCleanClick')
@@ -213,12 +213,12 @@ describe('Select', () => {
 
     it('should clear value and call onValueChange when clicked', () => {
       const onValueChanged = jest.fn()
-      const component = shallow(<Select value={'testValue'} onValueChanged={onValueChanged}/>)
+      const component = shallow(<Select value={value} onValueChanged={onValueChanged}/>)
       const button = component.find('.select-btn-clean')
 
       expect(button.length).toEqual(1)
       button.simulate('click')
-      expect(component.state().value).toEqual('')
+      expect(component.state().value).toEqual({id: undefined, title: undefined})
       expect(onValueChanged).toHaveBeenCalled()
     })
   })
@@ -317,7 +317,6 @@ describe('Select', () => {
     })
 
     it('should display provided value', () => {
-      const value = 'testValue'
       const component = shallow(<Select value={value}/>)
       const valueTextNode = component.find('.select-value-text')
       expect(valueTextNode.length).toEqual(1)
@@ -383,7 +382,7 @@ describe('Select', () => {
 
     it('should receive max 50 items', () => {
       const newOptions = []
-      ;(100).times((item) => { newOptions.push({id: item, value: 'testValue'})})
+      ;(100).times((item) => { newOptions.push({id: item, title: 'testValue'})})
       component.setProps({options: newOptions})
 
       expect(component.find('.select-options-list-item').length).toEqual(50)
@@ -392,8 +391,7 @@ describe('Select', () => {
 
   describe('function', () => {
     it('shouldComponentUpdate() should return false if state and props have the same values', () => {
-      const value = 'value1'
-      const options = [{ id: 'id1', value: 'value1' }]
+      const options = [{ id: 'id1', title: 'value1' }]
       const component = mount(<Select value={value} options={options}/>)
       const instance = component.instance()
       const scuSpy = jest.spyOn(instance, 'shouldComponentUpdate')
@@ -406,8 +404,8 @@ describe('Select', () => {
     })
 
     it('loadOptions should update options in synchronous mode', () => {
-      const firstOptions = [{ id: 'id1', value: 'value1' }]
-      const secondOptions = [{ id: 'id2', value: 'value2' }, { id: 'id3', value: 'value3' }]
+      const firstOptions = [{ id: 'id1', title: 'value1' }]
+      const secondOptions = [{ id: 'id2', title: 'value2' }, { id: 'id3', title: 'value3' }]
       const loadOptions = jest.fn();
       loadOptions
         .mockReturnValueOnce(firstOptions)
