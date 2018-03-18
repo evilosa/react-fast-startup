@@ -44,7 +44,6 @@ export const createSelectStyle = (colors = SelectColors) => ({
     maxHeight: '60px',
     minWidth: '160px',
     boxShadow: '0px 8px 16px 0px rgba(0,0,0,0.2)',
-    marginTop: '30px',
     padding: '12px 16px',
     zIndex: '1',
     overflowY: 'auto',

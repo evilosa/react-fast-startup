@@ -135,13 +135,13 @@ class Select extends React.Component {
   }
 
   _renderValueText = () => {
-    const { isOptionsVisible, value: { title } } = this.state
+    const { value: { title } } = this.state
 
-    if (!isOptionsVisible)
-      return <div
-        className='select-value-text'
-        style={style.value}
-      >{title}</div>
+    return <div style={{flex: '1 0'}}
+    >
+      <div style={style.value} className='select-value-text'>{title}</div>
+      {this._renderOptionsList()}
+    </div>
   }
 
   _renderOptionsList = () => {
@@ -152,12 +152,9 @@ class Select extends React.Component {
       return (
         <div
           className='select-options-list'
+          style={style.optionsList}
         >
-          <div
-            style={style.optionsList}
-          >
-            {options && options.map((item, key) => this._renderOptionsListItem(key, item))}
-          </div>
+          {options && options.map((item, key) => this._renderOptionsListItem(key, item))}
         </div>
       )
     }
@@ -217,7 +214,6 @@ class Select extends React.Component {
         </div>
         {this._renderValueText()}
         {this._renderSearchInput()}
-        {this._renderOptionsList()}
         {this._renderSelectButton()}
         {this._renderRefreshButton()}
         {this._renderCleanButton()}

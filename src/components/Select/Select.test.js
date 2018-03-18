@@ -308,12 +308,12 @@ describe('Select', () => {
       expect(component.find('.select-value-text').length).toEqual(1)
     })
 
-    it('should not be visible if state.isOptionsVisible=true', () => {
+    it('should be visible if state.isOptionsVisible=true', () => {
       const component = shallow(<Select />)
       component.setState({isOptionsVisible: true})
 
       expect(component.state().isOptionsVisible).toBeTruthy()
-      expect(component.find('.select-value-text').length).toEqual(0)
+      expect(component.find('.select-value-text').length).toEqual(1)
     })
 
     it('should display provided value', () => {

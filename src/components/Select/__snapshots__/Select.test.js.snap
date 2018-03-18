@@ -29,22 +29,32 @@ exports[`Select renders properly 1`] = `
     }
   />
   <div
-    className="select-value-text"
     data-radium={true}
     key=".1"
     style={
       Object {
-        "borderColor": "#5bff42",
-        "borderStyle": "solid",
-        "borderWidth": "1px",
         "flex": "1 0",
-        "padding": "5px",
       }
     }
-  />
+  >
+    <div
+      className="select-value-text"
+      data-radium={true}
+      key=".0"
+      style={
+        Object {
+          "borderColor": "#5bff42",
+          "borderStyle": "solid",
+          "borderWidth": "1px",
+          "flex": "1 0",
+          "padding": "5px",
+        }
+      }
+    />
+  </div>
   <Button
     className="select-btn-open"
-    key=".4"
+    key=".3"
     onClick={[Function]}
     style={
       Object {
@@ -93,7 +103,7 @@ exports[`Select value text should display provided value 1`] = `
 <div
   className="select-value-text"
   data-radium={true}
-  key=".1"
+  key=".0"
   style={
     Object {
       "borderColor": "#5bff42",
