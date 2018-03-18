@@ -259,14 +259,14 @@ describe('Select', () => {
       const loadOptions = jest.fn()
       const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
       component.setState(prev => ({ ...prev, isOptionsVisible: true, isLoading: true }))
-      expect(component.find('.select-search-input').props().enabled).toBeFalsy()
+      expect(component.find('.select-search-input').props().enabled).toEqual('false')
     })
 
     it('should be enabled if state.isLoading=false', () => {
       const loadOptions = jest.fn()
       const component = shallow(<Select options={options} loadOptions={loadOptions}/>)
       component.setState(prev => ({ ...prev, isOptionsVisible: true, isLoading: false }))
-      expect(component.find('.select-search-input').props().enabled).toBeTruthy()
+      expect(component.find('.select-search-input').props().enabled).toEqual('true')
     })
 
     it('should call _handleSearch with right arguments when user input something', () => {

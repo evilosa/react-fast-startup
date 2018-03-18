@@ -198,7 +198,7 @@ class Select extends React.Component {
     const { loadOptions, loadOptionsAsync } = this.props
 
     if (isOptionsVisible && (loadOptions || loadOptionsAsync))
-      return <input className='select-search-input' enabled={!isLoading} onChange={event => this._handleSearch(event.currentTarget.value)}/>
+      return <input className='select-search-input' enabled={(!isLoading).toString()} onChange={event => this._handleSearch(event.currentTarget.value)}/>
   }
 
   render() {
