@@ -33,6 +33,7 @@ export const createSelectStyle = (colors = SelectColors) => ({
   value: {
     flex: '1 0',
     padding: '5px',
+    minHeight: '20px',
     ...defaultBorder,
     borderColor: colors.valueBorder,
   },

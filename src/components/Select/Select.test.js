@@ -135,6 +135,7 @@ describe('Select', () => {
   describe('component refresh button', () => {
     it('should be visible if loadOptions function is defined', () => {
       const loadOptionsFn = jest.fn()
+      loadOptionsFn.mockReturnValue([])
       const component = shallow(<Select loadOptions={loadOptionsFn}/>)
 
       expect(component.find('.select-btn-refresh').length).toEqual(1)
@@ -153,7 +154,7 @@ describe('Select', () => {
     })
 
     it('should call _handleRefreshClick when clicked', () => {
-      const component = shallow(<Select loadOptions={() => {}}/>)
+      const component = shallow(<Select loadOptions={() => []}/>)
       const instance = component.instance();
       const button = component.find('.select-btn-refresh')
       const spy = jest.spyOn(instance, '_handleRefreshClick')
@@ -432,6 +433,29 @@ describe('Select', () => {
       const refresh = component.find('.select-btn-refresh')
       refresh.simulate('click')
       expect(loadOptionsAsync).toHaveBeenCalled()
+    })
+  })
+
+  describe('isOptionsDifferent function', () => {
+    it('should return false for same options', () => {
+      const component = shallow(<Select/>)
+      const instance = component.instance()
+
+      expect(instance._isOptionsDifferent(options, options)).toBeFalsy()
+    })
+
+    it('should return true for different options', () => {
+      const component = shallow(<Select/>)
+      const instance = component.instance()
+
+      expect(instance._isOptionsDifferent(options, [ ...options, ...options])).toBeTruthy()
+    })
+
+    it('should return true for options with different values', () => {
+      const component = shallow(<Select/>)
+      const instance = component.instance()
+
+      expect(instance._isOptionsDifferent(options, { id: '0', title: 'DifferentTitle' })).toBeTruthy()
     })
   })
 })

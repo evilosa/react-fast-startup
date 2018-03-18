@@ -4,7 +4,7 @@ import Button from '../Button'
 import Radium from 'radium'
 import style from './style'
 
-class Select extends React.Component {
+export class Select extends React.Component {
 
   static propTypes = {
     title: PropTypes.string,
@@ -41,31 +41,35 @@ class Select extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.options !== this.props.options)
-    {
-      this.setState(prev => ({
-        ...prev,
-        options: nextProps.options.slice(0, 50),
-      }))
+    this.setState(prev => ({
+      ...prev,
+      options: nextProps.options.slice(0, 50),
+      value: nextProps.value !== this.props.value ? nextProps.value : prev.value
+    }))
+  }
+
+  _isOptionsDifferent = (array1, array2) => {
+    let result = array1.length !== array2.length
+
+    if (!result) {
+      for (let i = 0; i < array1.length; i++) {
+        result = result || array1[i].id !== array2[i].id
+        result = result || array1[i].title !== array2[i].title
+      }
     }
 
-    if (nextProps.value !== this.props.value)
-    {
-      this.setState(prev => ({
-        ...prev,
-        value: nextProps.value,
-      }))
-    }
+    return result;
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     let result = false
 
     result = result || nextProps.value !== this.props.value
-    result = result || nextProps.options !== this.props.options
+    result = result || this._isOptionsDifferent(nextProps.options, this.props.options)
 
     result = result || nextState.isLoading !== this.state.isLoading
-    result = result || nextState.options !== this.state.options
+    result = result || this._isOptionsDifferent(nextState.options, this.state.options)
+    result = result || this._isOptionsDifferent(nextProps.options, this.state.options)
     result = result || nextState.value !== this.state.value
     result = result || nextState.isOptionsVisible !== this.state.isOptionsVisible
 
@@ -154,6 +158,7 @@ class Select extends React.Component {
           className='select-options-list'
           style={style.optionsList}
         >
+          {this._renderSearchInput()}
           {options && options.map((item, key) => this._renderOptionsListItem(key, item))}
         </div>
       )
@@ -213,7 +218,6 @@ class Select extends React.Component {
           {title}
         </div>
         {this._renderValueText()}
-        {this._renderSearchInput()}
         {this._renderSelectButton()}
         {this._renderRefreshButton()}
         {this._renderCleanButton()}
