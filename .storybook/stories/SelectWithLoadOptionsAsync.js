@@ -12,9 +12,7 @@ const options = [
 ]
 
 const loadOptionsAsync = () => {
-  setTimeout(() => {
-    return options;
-  }, 3000);
+  return options;
 }
 const value = options[0]
 
@@ -31,7 +29,7 @@ storiesOf('Select', module)
       >
         <Select
           title='Countries'
-          loadOptions={loadOptionsAsync}
+          loadOptionsAsync={loadOptionsAsync}
           value={value}
         />
       </div>
