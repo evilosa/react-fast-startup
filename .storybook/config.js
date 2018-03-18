@@ -8,7 +8,6 @@ function loadStories() {
   require('./stories/Page')
   require('./stories/Select')
   require('./stories/SelectWithLoadOptions')
-  require('./stories/SelectWithLoadOptionsAsync')
   require('./stories/TableWithAddButton')
 }
 
