@@ -5,10 +5,16 @@ exports[`Select renders properly 1`] = `
   data-radium={true}
   style={
     Object {
+      "borderColor": "#edf0f5",
       "borderStyle": "solid",
       "borderWidth": "1px",
       "display": "flex",
       "flex": "1 0",
+      "fontFamily": "'Raleway', sans-serif",
+      "fontSize": "12px",
+      "fontStretch": "100%",
+      "fontWeight": "600",
+      "lineHeight": "18px",
     }
   }
 >
@@ -18,9 +24,6 @@ exports[`Select renders properly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderColor": "#ff6f13",
-        "borderStyle": "solid",
-        "borderWidth": "1px",
         "display": "flex",
         "minWidth": "150px",
         "padding": "5px",
@@ -43,11 +46,14 @@ exports[`Select renders properly 1`] = `
       onClick={[Function]}
       style={
         Object {
-          "borderColor": "#5bff42",
+          "borderBottom": "0",
+          "borderColor": "#edf0f5",
+          "borderLeft": "1px",
+          "borderRight": "0",
           "borderStyle": "solid",
-          "borderWidth": "1px",
-          "color": "#fff",
+          "borderTop": "0",
           "flex": "1 0",
+          "fontWeight": "500",
           "minHeight": "20px",
           "padding": "5px",
         }
@@ -131,26 +137,32 @@ Object {
     "padding": "12px 16px",
   },
   "root": Object {
+    "borderColor": "#edf0f5",
     "borderStyle": "solid",
     "borderWidth": "1px",
     "display": "flex",
     "flex": "1 0",
+    "fontFamily": "'Raleway', sans-serif",
+    "fontSize": "12px",
+    "fontStretch": "100%",
+    "fontWeight": "600",
+    "lineHeight": "18px",
   },
   "title": Object {
     "alignItems": "center",
-    "borderColor": "#ff6f13",
-    "borderStyle": "solid",
-    "borderWidth": "1px",
     "display": "flex",
     "minWidth": "150px",
     "padding": "5px",
   },
   "value": Object {
-    "borderColor": "#5bff42",
+    "borderBottom": "0",
+    "borderColor": "#edf0f5",
+    "borderLeft": "1px",
+    "borderRight": "0",
     "borderStyle": "solid",
-    "borderWidth": "1px",
-    "color": "#fff",
+    "borderTop": "0",
     "flex": "1 0",
+    "fontWeight": "500",
     "minHeight": "20px",
     "padding": "5px",
   },
@@ -165,11 +177,14 @@ exports[`Select value text should display provided value 1`] = `
   onClick={[Function]}
   style={
     Object {
-      "borderColor": "#5bff42",
+      "borderBottom": "0",
+      "borderColor": "#edf0f5",
+      "borderLeft": "1px",
+      "borderRight": "0",
       "borderStyle": "solid",
-      "borderWidth": "1px",
-      "color": "#fff",
+      "borderTop": "0",
       "flex": "1 0",
+      "fontWeight": "500",
       "minHeight": "20px",
       "padding": "5px",
     }
