@@ -79,7 +79,7 @@ export class Select extends React.Component {
   _handleSelectClick = () => {
     this.setState(prev => ({
       ...prev,
-      isOptionsVisible: true,
+      isOptionsVisible: !prev.isOptionsVisible,
     }))
   }
 
@@ -141,9 +141,16 @@ export class Select extends React.Component {
   _renderValueText = () => {
     const { value: { title } } = this.state
 
-    return <div style={{flex: '1 0'}}
+    return <div
+      style={{flex: '1 0'}}
     >
-      <div style={style.value} className='select-value-text'>{title}</div>
+      <div
+        style={style.value}
+        className='select-value-text'
+        onClick={() => this._handleSelectClick()}
+      >
+        {title}
+      </div>
       {this._renderOptionsList()}
     </div>
   }
@@ -182,6 +189,7 @@ export class Select extends React.Component {
       <div
         className='select-options-list-item'
         key={key}
+        style={style.optionsListItem}
         onClick={() => this._handleOptionsListItemClick(item)}
       >
         {title}
@@ -203,7 +211,13 @@ export class Select extends React.Component {
     const { loadOptions, loadOptionsAsync } = this.props
 
     if (isOptionsVisible && (loadOptions || loadOptionsAsync))
-      return <input className='select-search-input' enabled={(!isLoading).toString()} onChange={event => this._handleSearch(event.currentTarget.value)}/>
+      return <input
+        className='select-search-input'
+        style={style.optionsSearch}
+        enabled={(!isLoading).toString()}
+        onChange={event => this._handleSearch(event.currentTarget.value)}
+        placeholder='input data'
+      />
   }
 
   render() {

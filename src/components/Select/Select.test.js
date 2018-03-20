@@ -328,6 +328,14 @@ describe('Select', () => {
       expect(valueTextNode.length).toEqual(1)
       expect(valueTextNode).toMatchSnapshot()
     })
+
+    it('should open options list onClick', () => {
+      const component = shallow(<Select />)
+      const value = component.find('.select-value-text')
+      value.simulate('click')
+      expect(component.state().isOptionsVisible).toBeTruthy()
+      expect(component.find('.select-value-text').length).toEqual(1)
+    })
   })
 
   describe('options list', () => {
