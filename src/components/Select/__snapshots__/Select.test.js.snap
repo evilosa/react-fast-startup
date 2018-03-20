@@ -5,11 +5,16 @@ exports[`Select renders properly 1`] = `
   data-radium={true}
   style={
     Object {
-      "borderColor": "#3b88ff",
+      "borderColor": "#edf0f5",
       "borderStyle": "solid",
       "borderWidth": "1px",
       "display": "flex",
       "flex": "1 0",
+      "fontFamily": "'Raleway', sans-serif",
+      "fontSize": "12px",
+      "fontStretch": "100%",
+      "fontWeight": "600",
+      "lineHeight": "18px",
     }
   }
 >
@@ -19,9 +24,6 @@ exports[`Select renders properly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderColor": "#ff6f13",
-        "borderStyle": "solid",
-        "borderWidth": "1px",
         "display": "flex",
         "minWidth": "150px",
         "padding": "5px",
@@ -41,12 +43,17 @@ exports[`Select renders properly 1`] = `
       className="select-value-text"
       data-radium={true}
       key=".0"
+      onClick={[Function]}
       style={
         Object {
-          "borderColor": "#5bff42",
+          "borderBottom": "0",
+          "borderColor": "#edf0f5",
+          "borderLeft": "1px",
+          "borderRight": "0",
           "borderStyle": "solid",
-          "borderWidth": "1px",
+          "borderTop": "0",
           "flex": "1 0",
+          "fontWeight": "500",
           "minHeight": "20px",
           "padding": "5px",
         }
@@ -103,38 +110,59 @@ exports[`Select renders properly 1`] = `
 exports[`Select should have correct style 1`] = `
 Object {
   "optionsList": Object {
-    "backgroundColor": "#f9f9f9",
-    "boxShadow": "0px 8px 16px 0px rgba(0,0,0,0.2)",
-    "display": "block",
-    "maxHeight": "60px",
-    "minWidth": "160px",
+    "backgroundColor": "#35414a",
+    "color": "#fff",
+    "display": "flex",
+    "flexDirection": "column",
+    "maxHeight": "160px",
+    "minWidth": "260px",
     "overflowX": "hidden",
     "overflowY": "auto",
-    "padding": "12px 16px",
     "position": "absolute",
     "zIndex": "1",
   },
+  "optionsListItem": Object {
+    ":hover": Object {
+      "backgroundColor": "#5aafee",
+      "color": "#fff",
+    },
+    "backgroundColor": "#35414a",
+    "color": undefined,
+    "padding": "12px 16px",
+  },
+  "optionsSearch": Object {
+    "backgroundColor": "#35414a",
+    "color": "#fff",
+    "marginRight": "10px",
+    "padding": "12px 16px",
+  },
   "root": Object {
-    "borderColor": "#3b88ff",
+    "borderColor": "#edf0f5",
     "borderStyle": "solid",
     "borderWidth": "1px",
     "display": "flex",
     "flex": "1 0",
+    "fontFamily": "'Raleway', sans-serif",
+    "fontSize": "12px",
+    "fontStretch": "100%",
+    "fontWeight": "600",
+    "lineHeight": "18px",
   },
   "title": Object {
     "alignItems": "center",
-    "borderColor": "#ff6f13",
-    "borderStyle": "solid",
-    "borderWidth": "1px",
     "display": "flex",
     "minWidth": "150px",
     "padding": "5px",
   },
   "value": Object {
-    "borderColor": "#5bff42",
+    "borderBottom": "0",
+    "borderColor": "#edf0f5",
+    "borderLeft": "1px",
+    "borderRight": "0",
     "borderStyle": "solid",
-    "borderWidth": "1px",
+    "borderTop": "0",
     "flex": "1 0",
+    "fontWeight": "500",
     "minHeight": "20px",
     "padding": "5px",
   },
@@ -146,12 +174,17 @@ exports[`Select value text should display provided value 1`] = `
   className="select-value-text"
   data-radium={true}
   key=".0"
+  onClick={[Function]}
   style={
     Object {
-      "borderColor": "#5bff42",
+      "borderBottom": "0",
+      "borderColor": "#edf0f5",
+      "borderLeft": "1px",
+      "borderRight": "0",
       "borderStyle": "solid",
-      "borderWidth": "1px",
+      "borderTop": "0",
       "flex": "1 0",
+      "fontWeight": "500",
       "minHeight": "20px",
       "padding": "5px",
     }
